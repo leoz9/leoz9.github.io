@@ -557,6 +557,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -871,6 +872,26 @@ var options = {
 const darkmode = new Darkmode(options);
 window.darkmode = darkmode;
 darkmode.showWidget();
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4c32829647c720de0446',
+      clientSecret: '184df627061e8ea795b788b3a0567660a1d8da1f',
+      repo        : 'https://leoz9.github.io/',
+      owner       : 'leoz9',
+      admin       : ['leoz9'],
+      id          : '4432d25e67b3bc6f59af79d501c28f2e',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 
