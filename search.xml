@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git学习</title>
-    <url>/posts/607d6c62/</url>
-    <content><![CDATA[<h2 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h2><p>Git是目前世界上最先进的分布式版本控制系统。</p>
-<p>自动记录每次文件的改动，可以让同事协作编辑。如果想查看某次改动，只需要在软件里瞄一眼就可以。</p>
-<span id="more"></span>
-
-<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><h3 id="在Linux上安装Git"><a href="#在Linux上安装Git" class="headerlink" title="在Linux上安装Git"></a>在Linux上安装Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-
-<h3 id="在Mac-OS-X上安装Git"><a href="#在Mac-OS-X上安装Git" class="headerlink" title="在Mac OS X上安装Git"></a>在Mac OS X上安装Git</h3><p>通过homebrew安装Git</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-配置Git用户信息"><a href="#2-配置Git用户信息" class="headerlink" title="2.配置Git用户信息"></a>2.配置Git用户信息</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name   &quot;你的名字或昵称&quot;</span><br><span class="line">git config --global user.email  &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3.创建版本库"></a>3.创建版本库</h2><p>版本库又名仓库，英文名<strong>repository</strong>，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd </span><br><span class="line">mkdir git</span><br><span class="line">cd git</span><br><span class="line">pwd</span><br></pre></td></tr></table></figure>
-
-<p>第二步，通过<code>git init</code>命令把这个目录变成Git可以管理的仓库：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-文件放到Git仓库"><a href="#4-文件放到Git仓库" class="headerlink" title="4.文件放到Git仓库"></a>4.文件放到Git仓库</h2><p>第一步，用命令<code>git add</code>告诉Git，把文件添加到仓库：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add readme.txt</span><br></pre></td></tr></table></figure>
-
-<p>第二步，用命令<code>git commit</code>告诉Git，把文件提交到仓库：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;wrote a readme file&quot;</span><br></pre></td></tr></table></figure>
-
-<p><code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
-<h2 id="5-常用命令"><a href="#5-常用命令" class="headerlink" title="5.常用命令"></a>5.常用命令</h2><p><code>git status</code>命令可以让我们时刻掌握仓库当前的状态</p>
-<p><code>git diff</code>顾名思义就是查看difference</p>
-<p><code>git log</code>命令显示从最近到最远的提交日志</p>
-<p><code>git reset --hard commit_id</code>：回退指定版本</p>
-<p><code>git reflog</code>用来记录你的每一次命令</p>
-<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
-<p><code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong>。</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ STL常用容器API总结</title>
     <url>/posts/ce863392/</url>
     <content><![CDATA[<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++ STL"></a>C++ STL</h2><p>C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类和函数可以实现多种流行和常用的算法和数据结构，如向量、链表、队列、栈。</p>
@@ -353,6 +311,48 @@ C++11新提供的方法，类似如下方式：
       </tags>
   </entry>
   <entry>
+    <title>Git学习</title>
+    <url>/posts/607d6c62/</url>
+    <content><![CDATA[<h2 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h2><p>Git是目前世界上最先进的分布式版本控制系统。</p>
+<p>自动记录每次文件的改动，可以让同事协作编辑。如果想查看某次改动，只需要在软件里瞄一眼就可以。</p>
+<span id="more"></span>
+
+<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><h3 id="在Linux上安装Git"><a href="#在Linux上安装Git" class="headerlink" title="在Linux上安装Git"></a>在Linux上安装Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<h3 id="在Mac-OS-X上安装Git"><a href="#在Mac-OS-X上安装Git" class="headerlink" title="在Mac OS X上安装Git"></a>在Mac OS X上安装Git</h3><p>通过homebrew安装Git</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-配置Git用户信息"><a href="#2-配置Git用户信息" class="headerlink" title="2.配置Git用户信息"></a>2.配置Git用户信息</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name   &quot;你的名字或昵称&quot;</span><br><span class="line">git config --global user.email  &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3.创建版本库"></a>3.创建版本库</h2><p>版本库又名仓库，英文名<strong>repository</strong>，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd </span><br><span class="line">mkdir git</span><br><span class="line">cd git</span><br><span class="line">pwd</span><br></pre></td></tr></table></figure>
+
+<p>第二步，通过<code>git init</code>命令把这个目录变成Git可以管理的仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-文件放到Git仓库"><a href="#4-文件放到Git仓库" class="headerlink" title="4.文件放到Git仓库"></a>4.文件放到Git仓库</h2><p>第一步，用命令<code>git add</code>告诉Git，把文件添加到仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add readme.txt</span><br></pre></td></tr></table></figure>
+
+<p>第二步，用命令<code>git commit</code>告诉Git，把文件提交到仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;wrote a readme file&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
+<h2 id="5-常用命令"><a href="#5-常用命令" class="headerlink" title="5.常用命令"></a>5.常用命令</h2><p><code>git status</code>命令可以让我们时刻掌握仓库当前的状态</p>
+<p><code>git diff</code>顾名思义就是查看difference</p>
+<p><code>git log</code>命令显示从最近到最远的提交日志</p>
+<p><code>git reset --hard commit_id</code>：回退指定版本</p>
+<p><code>git reflog</code>用来记录你的每一次命令</p>
+<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<p><code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong>。</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>余老师，我喜欢你</title>
     <url>/posts/1faadecf/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -374,6 +374,20 @@ C++11新提供的方法，类似如下方式：
       <tags>
         <tag>杂谈</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>svm学习</title>
+    <url>/posts/447d0726/</url>
+    <content><![CDATA[<p>支持向量机（英语：support vector machine，常简称为SVM，又名支持向量网络）是一种二类分类模型，他的基本模型是的定义在特征空间上的<strong>间隔最大</strong>的线性分类器，SVM的学习策略就是间隔最大化。</p>
+<p>svm有三宝：间隔、对偶、核技巧</p>
+<p>Svm:</p>
+<ol>
+<li>Hard-margin svm</li>
+<li>Soft-margin svm</li>
+<li>Kernel svm</li>
+</ol>
+<p>​	 </p>
+]]></content>
   </entry>
   <entry>
     <title>新设置OpenWrt无法正确联网及解决方法</title>
