@@ -376,6 +376,20 @@ C++11新提供的方法，类似如下方式：
       </tags>
   </entry>
   <entry>
+    <title>svm学习</title>
+    <url>/posts/447d0726/</url>
+    <content><![CDATA[<p>支持向量机（英语：support vector machine，常简称为SVM，又名支持向量网络）是一种二类分类模型，他的基本模型是的定义在特征空间上的<strong>间隔最大</strong>的线性分类器，SVM的学习策略就是间隔最大化。</p>
+<p>svm有三宝：间隔、对偶、核技巧</p>
+<p>Svm:</p>
+<ol>
+<li>Hard-margin svm</li>
+<li>Soft-margin svm</li>
+<li>Kernel svm</li>
+</ol>
+<p>​	 </p>
+]]></content>
+  </entry>
+  <entry>
     <title>【文献阅读】如何阅读科研论文</title>
     <url>/posts/fd318370/</url>
     <content><![CDATA[<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1.引言"></a>1.引言</h2><p>科研人员必须阅读论文的几个理由：为了会议或者学生审稿、为了在本领域中保持消息灵通、为了解新领域进行文献调研。一个典型的科研人员每年可能要花费几百小时去阅读论文。</p>
@@ -420,42 +434,6 @@ C++11新提供的方法，类似如下方式：
 ]]></content>
       <tags>
         <tag>文献阅读</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>svm学习</title>
-    <url>/posts/447d0726/</url>
-    <content><![CDATA[<p>支持向量机（英语：support vector machine，常简称为SVM，又名支持向量网络）是一种二类分类模型，他的基本模型是的定义在特征空间上的<strong>间隔最大</strong>的线性分类器，SVM的学习策略就是间隔最大化。</p>
-<p>svm有三宝：间隔、对偶、核技巧</p>
-<p>Svm:</p>
-<ol>
-<li>Hard-margin svm</li>
-<li>Soft-margin svm</li>
-<li>Kernel svm</li>
-</ol>
-<p>​	 </p>
-]]></content>
-  </entry>
-  <entry>
-    <title>新设置OpenWrt无法正确联网及解决方法</title>
-    <url>/posts/eac71423/</url>
-    <content><![CDATA[<h1 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h1><p>将家里的小米路由器AC2100系统刷为OpenWrt之后，发现无法正确联网，检查各种问题后发现，与移动的光猫的IP地址重合同为192.168.1.1</p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><p>设置静态IP，改为192.168.x.1。</p>
-<h2 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h2><p>1、通过ssh，以root的身份登录系统终端；</p>
-<p>2、修改&#x2F;etc&#x2F;config&#x2F;network文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/config/network</span><br></pre></td></tr></table></figure>
-
-<p>按i键，把 <code>option gateway &#39;192.168.1.1&#39;</code>改成自己需要的IP地址，如192.168.2.1，再按ESC键，再按：wq保存退出。</p>
-<p>执行以上命令，打开网络配置文件，如下：</p>
-<img src="https://cdn.leoz.work/img%E6%88%AA%E5%B1%8F2023-02-12%2003.45.46.png" alt="1" style="zoom:50%;" />
-
-<p>3、重启路由器即可。</p>
-]]></content>
-      <categories>
-        <category>openwrt</category>
-      </categories>
-      <tags>
-        <tag>杂谈</tag>
       </tags>
   </entry>
   <entry>
@@ -693,6 +671,28 @@ C++11新提供的方法，类似如下方式：
       </categories>
       <tags>
         <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新设置OpenWrt无法正确联网及解决方法</title>
+    <url>/posts/eac71423/</url>
+    <content><![CDATA[<h1 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h1><p>将家里的小米路由器AC2100系统刷为OpenWrt之后，发现无法正确联网，检查各种问题后发现，与移动的光猫的IP地址重合同为192.168.1.1</p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><p>设置静态IP，改为192.168.x.1。</p>
+<h2 id="具体操作流程"><a href="#具体操作流程" class="headerlink" title="具体操作流程"></a>具体操作流程</h2><p>1、通过ssh，以root的身份登录系统终端；</p>
+<p>2、修改&#x2F;etc&#x2F;config&#x2F;network文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/config/network</span><br></pre></td></tr></table></figure>
+
+<p>按i键，把 <code>option gateway &#39;192.168.1.1&#39;</code>改成自己需要的IP地址，如192.168.2.1，再按ESC键，再按：wq保存退出。</p>
+<p>执行以上命令，打开网络配置文件，如下：</p>
+<img src="https://cdn.leoz.work/img%E6%88%AA%E5%B1%8F2023-02-12%2003.45.46.png" alt="1" style="zoom:50%;" />
+
+<p>3、重启路由器即可。</p>
+]]></content>
+      <categories>
+        <category>openwrt</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
       </tags>
   </entry>
 </search>
