@@ -102,26 +102,6 @@
   </entry>
   
   <entry>
-    <title>面向对象程序设计(C++语言)</title>
-    <link href="https://leoz.work/posts/68eaf0fe/"/>
-    <id>https://leoz.work/posts/68eaf0fe/</id>
-    <published>2023-04-01T11:23:30.000Z</published>
-    <updated>2023-04-03T12:23:09.305Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;a href=&quot;#（1）掌握面向对象程序设计的基本原则&quot; class=&quot;headerlink&quot; title=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;/a&gt;（1）掌握面向对象程序设计的基本原则&lt;/h2&gt;&lt;p&gt;在软件开发过程中，随着系统复杂度的增加，业务的变更，程序员面临着耦合性，内聚性，可维护性，可扩展性，可重用性的挑战。而良好的设计模式就可以解决此类问题。设计模式是包含了面向对象的精髓，熟练掌握面向对象设计&amp;#x2F;分析是掌握设计模式的基础。可以帮助我们考虑代码结构，使代码易于维护、易于扩展、易于阅读。&lt;/p&gt;
-&lt;p&gt;那么设计模式本身也是有自己需要遵守的原则，也是各种设计模式的基础。那么设计模式有常用的七大原则。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="coding" scheme="https://leoz.work/categories/coding/"/>
-    
-    
-    <category term="编程" scheme="https://leoz.work/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>新设置OpenWrt无法正确联网及解决方法</title>
     <link href="https://leoz.work/posts/eac71423/"/>
     <id>https://leoz.work/posts/eac71423/</id>
@@ -143,6 +123,26 @@
     
     
     <category term="杂谈" scheme="https://leoz.work/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象程序设计(C++语言)</title>
+    <link href="https://leoz.work/posts/68eaf0fe/"/>
+    <id>https://leoz.work/posts/68eaf0fe/</id>
+    <published>2023-04-01T11:23:30.000Z</published>
+    <updated>2023-04-03T12:23:09.305Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;a href=&quot;#（1）掌握面向对象程序设计的基本原则&quot; class=&quot;headerlink&quot; title=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;/a&gt;（1）掌握面向对象程序设计的基本原则&lt;/h2&gt;&lt;p&gt;在软件开发过程中，随着系统复杂度的增加，业务的变更，程序员面临着耦合性，内聚性，可维护性，可扩展性，可重用性的挑战。而良好的设计模式就可以解决此类问题。设计模式是包含了面向对象的精髓，熟练掌握面向对象设计&amp;#x2F;分析是掌握设计模式的基础。可以帮助我们考虑代码结构，使代码易于维护、易于扩展、易于阅读。&lt;/p&gt;
+&lt;p&gt;那么设计模式本身也是有自己需要遵守的原则，也是各种设计模式的基础。那么设计模式有常用的七大原则。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="coding" scheme="https://leoz.work/categories/coding/"/>
+    
+    
+    <category term="编程" scheme="https://leoz.work/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
