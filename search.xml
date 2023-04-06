@@ -1,316 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++ STL常用容器API总结</title>
-    <url>/posts/ce863392/</url>
-    <content><![CDATA[<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++ STL"></a>C++ STL</h2><p>C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类和函数可以实现多种流行和常用的算法和数据结构，如向量、链表、队列、栈。</p>
-<p>C++ 标准模板库的核心包括以下三个组件：</p>
-<ul>
-<li><strong>容器（Containers）</strong>: 容器是用来管理某一类对象的集合。C++ 提供了各种不同类型的容器，比如 deque、list、vector、map 等。</li>
-<li><strong>算法（Algorithms）</strong>: 算法作用于容器。它们提供了执行各种操作的方式，包括对容器内容执行初始化、排序、搜索和转换等操作。</li>
-<li><strong>迭代器（iterators）</strong>: 迭代器用于遍历对象集合的元素。这些集合可能是容器，也可能是容器的子集。</li>
-</ul>
-<p>这三个组件都带有丰富的预定义函数，帮助我们通过简单的方式处理复杂的任务。</p>
-<span id="more"></span>
-
-<h2 id="C-STL常用容器"><a href="#C-STL常用容器" class="headerlink" title="C++ STL常用容器"></a>C++ STL常用容器</h2><ul>
-<li><code>vector</code>：向量</li>
-<li><code>stack</code>：栈</li>
-<li><code>set</code>：集合</li>
-<li><code>queue</code>：队列</li>
-<li><code>list</code>：双向链表</li>
-<li><code>map</code>：地图</li>
-<li><code>string</code>：字符串</li>
-<li><code>deque</code>：双端队列</li>
-<li><code>priority_queue</code>：优先队列</li>
-</ul>
-<p>对于容器，主要的操作有：</p>
-<ul>
-<li>容器的建立</li>
-<li>插入元素</li>
-<li>删除元素</li>
-<li>查询</li>
-<li>遍历</li>
-<li>计算元素个数</li>
-<li>检查元素是否为空</li>
-<li>输出容器包含的内容</li>
-</ul>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p><code>vector</code>包含着一系列连续存储的元素,其行为和数组类似。访问Vector中的任意元素或从末尾添加元素都可以在<code>常量级时间复杂度</code>内完成，而查找特定值的元素所处的位置或是在Vector中插入元素则是<code>线性时间复杂度</code>。</p>
-<p>构造函数:</p>
-<ul>
-<li><p><code>vector();</code> 无参数 - 构造一个空的vector</p>
-</li>
-<li><p><code>vector(size_type num);</code> 数量(num) - 构造一个大小为num，值为Type默认值的Vector</p>
-</li>
-<li><p><code>vector(size_type num, const TYPE &amp;val);</code> 数量(num)和值(val) - 构造一个初始放入num个值为val的元素的Vector</p>
-</li>
-<li><p><code>vector(const vector &amp;from);</code> vector(from) - 构造一个与vector from 相同的vector</p>
-</li>
-<li><p><code>vector(input_iterator start, input_iterator end);</code> 迭代器(start)和迭代器(end) - 构造一个初始值为[start,end)区间元素的Vector(注:半开区间).</p>
-</li>
-<li><pre><code>vector(initializer_list&lt;value_type&gt; il, const allocator_type&amp; alloc = allocator_type());
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">  C++11新提供的方法，类似如下方式：</span><br><span class="line"></span><br><span class="line">  - `std::vector&lt;int&gt;a&#123;1, 2, 3, 4, 5&#125;;`</span><br><span class="line">  - `std::vector&lt;int&gt;a = &#123;1, 2, 3, 4, 5&#125;;`</span><br><span class="line"></span><br><span class="line">常用API：</span><br><span class="line"></span><br><span class="line">- Operators : 对vector进行赋值或比较</span><br><span class="line">  - `v1 == v2`</span><br><span class="line">  - `v1 != v2`</span><br><span class="line">  - `v1 &lt;= v2`</span><br><span class="line">  - `v1 &gt;= v2`</span><br><span class="line">  - `v1 &lt; v2`</span><br><span class="line">  - `v1 &gt; v2`</span><br><span class="line">  - `v[]`</span><br><span class="line">- `assign()`对Vector中的元素赋值</span><br><span class="line">- `at()` : 返回指定位置的元素</span><br><span class="line">- `back()` : 返回最末一个元素</span><br><span class="line">- `begin()` : 返回第一个元素的迭代器</span><br><span class="line">- `capacity()` : 返回vector所能容纳的元素数量(在不重新分配内存的情况下）</span><br><span class="line">- `clear()` : 清空所有元素</span><br><span class="line">- `empty()` : 判断Vector是否为空（返回true时为空）</span><br><span class="line">- `end()` : 返回最末元素的迭代器(译注:实指向最末元素的下一个位置)</span><br><span class="line">- `erase()` : 删除指定元素</span><br><span class="line">- `front()` : 返回第一个元素</span><br><span class="line">- `get_allocator()` : 返回vector的内存分配器</span><br><span class="line">- `insert()` : 插入元素到Vector中</span><br><span class="line">- `max_size()` : 返回Vector所能容纳元素的最大数量（上限）</span><br><span class="line">- `pop_back()` : 移除最后一个元素</span><br><span class="line">- `push_back()` : 在Vector最后添加一个元素</span><br><span class="line">- `rbegin()` : 返回Vector尾部的逆迭代器</span><br><span class="line">- `rend()` : 返回Vector起始的逆迭代器</span><br><span class="line">- `reserve()` : 设置Vector最小的元素容纳数量</span><br><span class="line">- `resize()` : 改变Vector元素数量的大小</span><br><span class="line">- `size()` : 返回Vector元素数量的大小</span><br><span class="line">- `swap()` : 交换两个Vector</span><br><span class="line"></span><br><span class="line">## stack</span><br><span class="line"></span><br><span class="line">C++ stack（堆栈）实现了一个**先进后出**（FILO）的数据结构。</span><br><span class="line"></span><br><span class="line">构造函数：</span><br><span class="line"></span><br><span class="line">- `stack&lt;T&gt; stkT;` : 采用模板类实现，stack对象的默认构造形式</span><br><span class="line">- `stack(const stack &amp;stk);` : 拷贝构造函数</span><br><span class="line"></span><br><span class="line">常用方法：</span><br><span class="line"></span><br><span class="line">- `size()`: 返回栈中的元素数</span><br><span class="line">- `top()`: 返回栈顶的元素</span><br><span class="line">- `pop()`: 从栈中取出并删除元素</span><br><span class="line">- `push(x)`: 向栈中添加元素x</span><br><span class="line">- `empty()`: 在栈为空时返回true</span><br><span class="line"></span><br><span class="line">## set</span><br><span class="line"></span><br><span class="line">Sets are containers that store unique elements following a specific order.</span><br><span class="line"></span><br><span class="line">集合中以一种特定的顺序保存唯一的元素。</span><br><span class="line"></span><br><span class="line">构造函数:</span><br><span class="line"></span><br><span class="line">- `set();` 无参数 - 构造一个空的set</span><br><span class="line"></span><br><span class="line">- `set(InputIterator first, InputIterator last)` : 迭代器的方式构造set</span><br><span class="line"></span><br><span class="line">- `set(const set &amp;from);` : copyd的方式构造一个与set from 相同的set</span><br><span class="line"></span><br><span class="line">- `set(input_iterator start, input_iterator end);` 迭代器(start)和迭代器(end) - 构造一个初始值为[start,end)区间元素的Vector(注:半开区间).</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  set (initializer_list&lt;value_type&gt; il, const key_compare&amp; comp = key_compare(), const allocator_type&amp; alloc = allocator_type());</span><br></pre></td></tr></table></figure>
-
- 
-
-C++11新提供的方法，类似如下方式：
-
-- `std::set&lt;int&gt;a&#123;1, 2, 3, 4, 5&#125;;`
-</code></pre>
-</li>
-</ul>
-<p>example:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing sets</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line"></span><br><span class="line">bool fncomp (int lhs, int rhs) &#123;return lhs&lt;rhs;&#125;</span><br><span class="line"></span><br><span class="line">struct classcomp &#123;</span><br><span class="line">  bool operator() (const int&amp; lhs, const int&amp; rhs) const</span><br><span class="line">  &#123;return lhs&lt;rhs;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::set&lt;int&gt; first;                           // empty set of ints</span><br><span class="line"></span><br><span class="line">  int myints[]= &#123;10,20,30,40,50&#125;;</span><br><span class="line">  std::set&lt;int&gt; second (myints,myints+5);        // range</span><br><span class="line"></span><br><span class="line">  std::set&lt;int&gt; third (second);                  // a copy of second</span><br><span class="line"></span><br><span class="line">  std::set&lt;int&gt; fourth (second.begin(), second.end());  // iterator ctor.</span><br><span class="line"></span><br><span class="line">  std::set&lt;int,classcomp&gt; fifth;                 // class as Compare</span><br><span class="line"></span><br><span class="line">  bool(*fn_pt)(int,int) = fncomp;</span><br><span class="line">  std::set&lt;int,bool(*)(int,int)&gt; sixth (fn_pt);  // function pointer as Compare</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>常用API：</p>
-<ul>
-<li><code>begin()</code> : 返回指向第一个元素的迭代器</li>
-<li><code>clear()</code> : 清除所有元素</li>
-<li><code>count()</code> : 返回某个值元素的个数</li>
-<li><code>empty()</code> : 如果集合为空，返回true</li>
-<li><code>end()</code> : 返回指向最后一个元素的迭代器</li>
-<li><code>equal_range()</code> : 返回集合中与给定值相等的上下限的两个迭代器</li>
-<li><code>erase()</code> : 删除集合中的元素</li>
-<li><code>find()</code> : 返回一个指向被查找到元素的迭代器</li>
-<li><code>get_allocator()</code> : 返回集合的分配器</li>
-<li><code>insert()</code> : 在集合中插入元素</li>
-<li><code>lower_bound()</code> : 返回指向大于（或等于）某值的第一个元素的迭代器</li>
-<li><code>key_comp()</code> : 返回一个用于元素间值比较的函数</li>
-<li><code>max_size()</code> : 返回集合能容纳的元素的最大限值</li>
-<li><code>rbegin()</code> : 返回指向集合中最后一个元素的反向迭代器</li>
-<li><code>rend()</code> : 返回指向集合中第一个元素的反向迭代器</li>
-<li><code>size()</code> : 集合中元素的数目</li>
-<li><code>swap()</code> : 交换两个集合变量</li>
-<li><code>upper_bound()</code> : 返回大于某个值元素的迭代器</li>
-<li><code>value_comp()</code> : 返回一个用于比较元素间的值的函数</li>
-</ul>
-<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>C++队列是一种容器适配器，它给予程序员一种先进先出(FIFO)的数据结构。</p>
-<p>构造函数：</p>
-<ul>
-<li><code>explicit queue (const container_type&amp; ctnr);</code></li>
-<li><code>explicit queue (container_type&amp;&amp; ctnr = container_type());</code></li>
-<li><code>template &lt;class Alloc&gt; explicit queue (const Alloc&amp; alloc);</code></li>
-<li><code>template &lt;class Alloc&gt; queue (const container_type&amp; ctnr, const Alloc&amp; alloc);</code></li>
-<li><code>template &lt;class Alloc&gt; queue (container_type&amp;&amp; ctnr, const Alloc&amp; alloc);</code></li>
-<li><code>template &lt;class Alloc&gt; queue (const queue&amp; x, const Alloc&amp; alloc);</code></li>
-<li><code>template &lt;class Alloc&gt; queue (queue&amp;&amp; x, const Alloc&amp; alloc);</code></li>
-</ul>
-<p>example:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing queues</span><br><span class="line">#include &lt;iostream&gt;       // std::cout</span><br><span class="line">#include &lt;deque&gt;          // std::deque</span><br><span class="line">#include &lt;list&gt;           // std::list</span><br><span class="line">#include &lt;queue&gt;          // std::queue</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::deque&lt;int&gt; mydeck (3,100);        // deque with 3 elements</span><br><span class="line">  std::list&lt;int&gt; mylist (2,200);         // list with 2 elements</span><br><span class="line"></span><br><span class="line">  std::queue&lt;int&gt; first;                 // empty queue</span><br><span class="line">  std::queue&lt;int&gt; second (mydeck);       // queue initialized to copy of deque</span><br><span class="line"></span><br><span class="line">  std::queue&lt;int,std::list&lt;int&gt;&gt; third; // empty queue with list as underlying container</span><br><span class="line">  std::queue&lt;int,std::list&lt;int&gt;&gt; fourth (mylist);</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; &quot;size of first: &quot; &lt;&lt; first.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">  std::cout &lt;&lt; &quot;size of second: &quot; &lt;&lt; second.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">  std::cout &lt;&lt; &quot;size of third: &quot; &lt;&lt; third.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">  std::cout &lt;&lt; &quot;size of fourth: &quot; &lt;&lt; fourth.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">size of first: 0</span><br><span class="line">size of second: 3</span><br><span class="line">size of third: 0</span><br><span class="line">size of fourth: 2</span><br></pre></td></tr></table></figure>
-
-<p>常用API：</p>
-<ul>
-<li><code>back()</code> : 返回最后一个元素</li>
-<li><code>empty()</code> : 如果队列空则返回真</li>
-<li><code>front()</code> : 返回第一个元素</li>
-<li><code>pop()</code> : 删除第一个元素</li>
-<li><code>push()</code> : 在末尾加入一个元素</li>
-<li><code>size()</code> : 返回队列中元素的个数</li>
-</ul>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>Lists将元素按顺序储存在链表中. 与 向量(vectors)相比, 它允许快速的插入和删除，但是随机访问却比较慢.</p>
-<p>构造函数：</p>
-<ul>
-<li><code>list (const allocator_type&amp; alloc = allocator_type());</code></li>
-<li><code>list (size_type n, const value_type&amp; val = value_type(), const allocator_type&amp; alloc = allocator_type());</code></li>
-<li><code>template &lt;class InputIterator&gt; list (InputIterator first, InputIterator last, const allocator_type&amp; alloc = allocator_type());</code></li>
-<li><code>list (const list&amp; x);</code></li>
-</ul>
-<p>常用API：</p>
-<ul>
-<li><code>assign()</code> : 给list赋值</li>
-<li><code>back()</code> : 返回最后一个元素</li>
-<li><code>begin()</code> : 返回指向第一个元素的迭代器</li>
-<li><code>clear()</code> : 删除所有元素</li>
-<li><code>empty()</code> : 如果list是空的则返回true</li>
-<li><code>end()</code> : 返回末尾的迭代器</li>
-<li><code>erase()</code> : 删除一个元素</li>
-<li><code>front()</code> : 返回第一个元素</li>
-<li><code>get_allocator()</code> : 返回list的配置器</li>
-<li><code>insert()</code> : 插入一个元素到list中</li>
-<li><code>max_size()</code> : 返回list能容纳的最大元素数量</li>
-<li><code>merge()</code> : 合并两个list</li>
-<li><code>pop_back()</code> : 删除最后一个元素</li>
-<li><code>pop_front()</code> : 删除第一个元素</li>
-<li><code>push_back()</code> : 在list的末尾添加一个元素</li>
-<li><code>push_front()</code> : 在list的头部添加一个元素</li>
-<li><code>rbegin()</code> : 返回指向第一个元素的逆向迭代器</li>
-<li><code>remove()</code> : 从list删除元素</li>
-<li><code>remove_if()</code> : 按指定条件删除元素</li>
-<li><code>rend()</code> : 指向list末尾的逆向迭代器</li>
-<li><code>resize()</code> : 改变list的大小</li>
-<li><code>reverse()</code> : 把list的元素倒转</li>
-<li><code>size()</code> : 返回list中的元素个数</li>
-<li><code>sort()</code> : 给list排序</li>
-<li><code>splice()</code> : 合并两个list</li>
-<li><code>swap()</code> : 交换两个list</li>
-<li><code>unique()</code> : 删除list中重复的元素</li>
-</ul>
-<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>C++ Maps是一种关联式容器，包含“关键字&#x2F;值”对</p>
-<p>构造函数：</p>
-<ul>
-<li><code>map (const key_compare&amp; comp = key_compare(), const allocator_type&amp; alloc = allocator_type());</code></li>
-<li><code>template &lt;class InputIterator&gt; map (InputIterator first, InputIterator last,const key_compare&amp; comp = key_compare(),const allocator_type&amp; = allocator_type());</code></li>
-<li><code>map (const map&amp; x);</code></li>
-<li><code>map (const map&amp; x, const allocator_type&amp; alloc);</code></li>
-<li><code>map (map&amp;&amp; x);</code></li>
-<li><code>map (map&amp;&amp; x, const allocator_type&amp; alloc);</code></li>
-<li><code>map (initializer_list&lt;value_type&gt; il, const key_compare&amp; comp = key_compare(), const allocator_type&amp; alloc = allocator_type());</code></li>
-</ul>
-<p>example:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing maps</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line"></span><br><span class="line">bool fncomp (char lhs, char rhs) &#123;return lhs&lt;rhs;&#125;</span><br><span class="line"></span><br><span class="line">struct classcomp &#123;</span><br><span class="line">  bool operator() (const char&amp; lhs, const char&amp; rhs) const</span><br><span class="line">  &#123;return lhs&lt;rhs;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::map&lt;char,int&gt; first;</span><br><span class="line"></span><br><span class="line">  first[&#x27;a&#x27;]=10;</span><br><span class="line">  first[&#x27;b&#x27;]=30;</span><br><span class="line">  first[&#x27;c&#x27;]=50;</span><br><span class="line">  first[&#x27;d&#x27;]=70;</span><br><span class="line"></span><br><span class="line">  std::map&lt;char,int&gt; second (first.begin(),first.end());</span><br><span class="line"></span><br><span class="line">  std::map&lt;char,int&gt; third (second);</span><br><span class="line"></span><br><span class="line">  std::map&lt;char,int,classcomp&gt; fourth;                 // class as Compare</span><br><span class="line"></span><br><span class="line">  bool(*fn_pt)(char,char) = fncomp;</span><br><span class="line">  std::map&lt;char,int,bool(*)(char,char)&gt; fifth (fn_pt); // function pointer as Compare</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>常用API：</p>
-<ul>
-<li><code>begin()</code> : 返回指向map头部的迭代器</li>
-<li><code>clear()</code> : 删除所有元素</li>
-<li><code>count()</code> : 返回指定元素出现的次数</li>
-<li><code>empty()</code> : 如果map为空则返回true</li>
-<li><code>end()</code> : 返回指向map末尾的迭代器</li>
-<li><code>equal_range()</code> : 返回特殊条目的迭代器对</li>
-<li><code>erase()</code> : 删除一个元素</li>
-<li><code>find()</code> : 查找一个元素</li>
-<li><code>get_allocator()</code> : 返回map的配置器</li>
-<li><code>insert()</code> : 插入元素–</li>
-<li><code>key_comp()</code> : 返回比较元素key的函数</li>
-<li><code>lower_bound()</code> : 返回键值&gt;&#x3D;给定元素的第一个位置</li>
-<li><code>max_size()</code> : 返回可以容纳的最大元素个数</li>
-<li><code>rbegin()</code> : 返回一个指向map尾部的逆向迭代器</li>
-<li><code>rend()</code> : 返回一个指向map头部的逆向迭代器</li>
-<li><code>size()</code> : 返回map中元素的个数</li>
-<li><code>swap()</code> : 交换两个map</li>
-<li><code>upper_bound()</code> : 返回键值&gt;给定元素的第一个位置</li>
-<li><code>value_comp()</code> : 返回比较元素value的函数</li>
-</ul>
-<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><h3 id="1-string构造函数"><a href="#1-string构造函数" class="headerlink" title="1.string构造函数"></a>1.string构造函数</h3><ul>
-<li><code>string();</code>&#x2F;&#x2F;创建一个空的字符串</li>
-<li><code>string(const string&amp; str);</code>&#x2F;&#x2F;使用一个string对象初始化另一个string对象</li>
-<li><code>string(const char* s);</code>&#x2F;&#x2F;使用字符串s初始化</li>
-<li><code>string(int n,char c);</code>&#x2F;&#x2F;使用n个字符c初始化</li>
-</ul>
-<h3 id="2-string基本赋值操作"><a href="#2-string基本赋值操作" class="headerlink" title="2.string基本赋值操作"></a>2.string基本赋值操作</h3><ul>
-<li><code>string&amp; operator=(const char* s);</code>&#x2F;&#x2F;char*类型字符串 赋值给当前的字符串</li>
-<li><code>string&amp; operator=(const string &amp;s);</code>&#x2F;&#x2F;把字符串s赋值给当前的字符串</li>
-<li><code>string&amp; operator=(char c);</code>&#x2F;&#x2F;字符赋值给当前的字符串</li>
-<li><code>string&amp; assign(const char* s);</code>&#x2F;&#x2F;把字符串s赋值给当前的字符串</li>
-<li><code>string&amp; assign(const char* s,int n);</code>&#x2F;&#x2F;把字符串s的前n个字符赋值给当前的字符串</li>
-<li><code>string&amp; assign(const string &amp;s);</code>&#x2F;&#x2F;把字符串s赋值给当前的字符串</li>
-<li><code>string&amp; assign(int n,char c);</code>&#x2F;&#x2F;用n个字符c赋值给当前字符串</li>
-<li><code>string&amp; assign(const string &amp;s,int start,int n);</code>&#x2F;&#x2F;将s从start开始n个字符赋值给字符串</li>
-</ul>
-<h3 id="3-string存取字符操作"><a href="#3-string存取字符操作" class="headerlink" title="3.string存取字符操作"></a>3.string存取字符操作</h3><ul>
-<li><code>char&amp; operator[](int n);</code>&#x2F;&#x2F;通过<code>[]</code>方式取字符</li>
-<li><code>char&amp; at(int n);</code>&#x2F;&#x2F;通过at方法获取字符</li>
-</ul>
-<h3 id="4-string拼接操作"><a href="#4-string拼接操作" class="headerlink" title="4.string拼接操作"></a>4.string拼接操作</h3><ul>
-<li><code>string&amp; operator+=(const string&amp; str);</code>&#x2F;&#x2F;重载+&#x3D;运算符</li>
-<li><code>string&amp; operator+=(const char* str);</code>&#x2F;&#x2F;重载+&#x3D;运算符</li>
-<li><code>string&amp; operator+=(const char c);</code>&#x2F;&#x2F;重载+&#x3D;运算符</li>
-<li><code>string&amp; append(const char *s);</code>&#x2F;&#x2F;把字符串s连接到当前字符串结尾</li>
-<li><code>string&amp; append(const char *s,int n);</code>&#x2F;&#x2F;把字符串s的前n个字符连接到当前字符串结尾</li>
-<li><code>string&amp; append(const string &amp;s);</code>&#x2F;&#x2F;同operator+&#x3D;（）</li>
-<li><code>string&amp; append(const string &amp;s,int pos,int n);</code>&#x2F;&#x2F;把字符串s中从pos开始的n个字符连接到当前字符串结尾</li>
-<li><code>string&amp; append(int n,char c);</code>&#x2F;&#x2F;在当前字符串结尾添加n个字符c</li>
-</ul>
-<h3 id="5-string查找和替换"><a href="#5-string查找和替换" class="headerlink" title="5.string查找和替换"></a>5.string查找和替换</h3><ul>
-<li><code>int find(const string&amp; str,int pos = 0)const;</code>&#x2F;&#x2F;查找str第一次出现的位置，从pos开始查找</li>
-<li><code>int find(const char* s,int pos = 0)const;</code>&#x2F;&#x2F;查找s第一次出现位置，从pos开始查找</li>
-<li><code>int find(const char *s,int pos,int n)const;</code>&#x2F;&#x2F;从pos位置查找s的前n个字符第一次位置</li>
-<li><code>int find(const char c,int pos = 0)const;</code>&#x2F;&#x2F;查找字符c第一次出现位置</li>
-<li><code>int rfind(const string&amp; str, int pos = npos)const;</code>&#x2F;&#x2F;查找str最后一次出现位置，从pos开始查找</li>
-<li><code>int rfind(const char* s,int pos = npos)const;</code>&#x2F;&#x2F;查找s最后一次出现位置，从pos开始查找</li>
-<li><code>int rfind(const char* s,int pos,int n )const;</code>&#x2F;&#x2F;从pos查找s的前n个字符最后一次位置</li>
-<li><code>int rfind(const char c,int pos = 0)const;</code>&#x2F;&#x2F;查找字符c最后一次出现位置</li>
-<li><code>string&amp; replace(int pos,int n,const string&amp; str);</code>&#x2F;&#x2F;替换从pos开始的n个字符为字符串str</li>
-<li><code>string&amp; replace(int pos,int n,const char* s);</code>&#x2F;&#x2F;替换从pos开始的n个字符为字符串s</li>
-</ul>
-<h3 id="6-string-比较操作"><a href="#6-string-比较操作" class="headerlink" title="6.string 比较操作"></a>6.string 比较操作</h3><ul>
-<li><code>int compare(const string &amp;s)const;</code>&#x2F;&#x2F;与字符串s比较</li>
-<li><code>int compare(const char*s)const;</code>&#x2F;&#x2F;与字符串s比较</li>
-<li>compare函数在&gt;时返回1，&lt;时返回-1，相等时返回0，比较区分大小写，逐个字符比较</li>
-</ul>
-<h3 id="7-string子串"><a href="#7-string子串" class="headerlink" title="7.string子串"></a>7.string子串</h3><ul>
-<li><code>string substr(int pos = 0,int n = npos)const;</code>&#x2F;&#x2F;返回由pos开始的n个字符组成的字符串</li>
-</ul>
-<h3 id="8-string插入和删除操作"><a href="#8-string插入和删除操作" class="headerlink" title="8.string插入和删除操作"></a>8.string插入和删除操作</h3><ul>
-<li><code>string&amp; insert(int pos,const char* s);</code>&#x2F;&#x2F;插入字符串</li>
-<li><code>string&amp; insert(int pos,const string &amp;str);</code>&#x2F;&#x2F;插入字符串</li>
-<li><code>string&amp; insert(int pos,int n,char c);</code>&#x2F;&#x2F;在指定位置插入n个字符c</li>
-<li><code>string&amp; erase(int pos,int n = npos);</code>&#x2F;&#x2F;删除从pos开始的n个字符</li>
-</ul>
-<h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h2><p>deque是Double-Ended Queues(双向队列)的缩写。</p>
-<p>双向队列和向量很相似，但是它允许在容器头部快速插入和删除（就像在尾部一样）。</p>
-<h3 id="1-deque构造函数"><a href="#1-deque构造函数" class="headerlink" title="1.deque构造函数"></a>1.deque构造函数</h3><ul>
-<li><code>deque&lt;T&gt; queT;</code>&#x2F;&#x2F;queue采用模板类实现，queue对象的默认构造形式</li>
-<li><code>deque&lt;T&gt; queT(size);</code>&#x2F;&#x2F;构造大小为size的deque，其中值为T类型的默认值</li>
-<li><code>deque&lt;T&gt; queT(size, val);</code>&#x2F;&#x2F;构造大小为size的deque，其中值为val</li>
-<li><code>deque(const deque &amp;que);</code>&#x2F;&#x2F;拷贝构造函数</li>
-<li><code>deque(input_iterator start, input_iterator end);</code>&#x2F;&#x2F;迭代器构造函数</li>
-</ul>
-<p>example:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing deques</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  unsigned int i;</span><br><span class="line"></span><br><span class="line">  // constructors used in the same order as described above:</span><br><span class="line">  std::deque&lt;int&gt; first;                                // empty deque of ints</span><br><span class="line">  std::deque&lt;int&gt; second (4,100);                       // four ints with value 100</span><br><span class="line">  std::deque&lt;int&gt; third (second.begin(),second.end());  // iterating through second</span><br><span class="line">  std::deque&lt;int&gt; fourth (third);                       // a copy of third</span><br><span class="line"></span><br><span class="line">  // the iterator constructor can be used to copy arrays:</span><br><span class="line">  int myints[] = &#123;16,2,77,29&#125;;</span><br><span class="line">  std::deque&lt;int&gt; fifth (myints, myints + sizeof(myints) / sizeof(int) );</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; &quot;The contents of fifth are:&quot;;</span><br><span class="line">  for (std::deque&lt;int&gt;::iterator it = fifth.begin(); it!=fifth.end(); ++it)</span><br><span class="line">    std::cout &lt;&lt; &#x27; &#x27; &lt;&lt; *it;</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The contents of fifth are: 16 2 77 29 </span><br></pre></td></tr></table></figure>
-
-<h3 id="2-deque存取、插入和删除操作"><a href="#2-deque存取、插入和删除操作" class="headerlink" title="2.deque存取、插入和删除操作"></a>2.deque存取、插入和删除操作</h3><ul>
-<li><code>back();</code>&#x2F;&#x2F;返回最后一个元素</li>
-<li><code>front();</code>&#x2F;&#x2F;返回第一个元素</li>
-<li><code>insert();</code>&#x2F;&#x2F;</li>
-<li><code>pop_back();</code>&#x2F;&#x2F;删除尾部的元素</li>
-<li><code>pop_front();</code>&#x2F;&#x2F;删除头部的元素</li>
-<li><code>push_back();</code>&#x2F;&#x2F;在尾部加入一个元素</li>
-<li><code>push_front();</code>&#x2F;&#x2F;在头部加入一个元素</li>
-<li><code>at();</code>&#x2F;&#x2F;访问指定位置元素</li>
-</ul>
-<blockquote>
-<p>注：queue只有push和pop方法，在尾部加入和删除元素。</p>
-</blockquote>
-<h3 id="3-deque赋值操作"><a href="#3-deque赋值操作" class="headerlink" title="3.deque赋值操作"></a>3.deque赋值操作</h3><ul>
-<li><code>operator[] (size_type n);</code>&#x2F;&#x2F;重载[]操作符</li>
-</ul>
-<h3 id="4-deque大小操作"><a href="#4-deque大小操作" class="headerlink" title="4.deque大小操作"></a>4.deque大小操作</h3><ul>
-<li><code>empty()</code>;&#x2F;&#x2F;判断队列是否为空</li>
-<li><code>size()</code>;&#x2F;&#x2F;返回队列的大小</li>
-</ul>
-<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>优先队列类似队列， 但是在这个数据结构中的元素按照一定的规则排列有序。</p>
-<p>在优先队列中，元素被赋予优先级。当访问元素时，具有最高优先级的元素最先删除。优先队列具有<strong>最高优先级先出</strong> （first in, largest out）的行为特征。</p>
-<p>首先要包含头文件#include, 他和queue不同的就在于我们可以自定义其中数据的优先级, 让优先级高的排在队列前面,优先出队。</p>
-<p>优先队列具有队列的所有特性，包括队列的基本操作，只是在这基础上添加了内部的一个排序，它<strong>本质是一个堆实现的</strong>。</p>
-<p>构造函数： <code>priority_queue&lt;Type, Container, Functional&gt;</code></p>
-<ul>
-<li>Type 就是数据类型，</li>
-<li>Container 就是容器类型（Container必须是具备<strong>随机存取</strong>能力的容器，支持如下方法：<code>empty()</code>, <code>size()</code>, <code>front()</code>, <code>push_back()</code>,<code>pop_back()</code>。比如vector,deque等等，但不能用list。STL里面默认用的是vector）。可选</li>
-<li>Functional 就是比较的方式。可选</li>
-</ul>
-<p>当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆(Functional是less)。</p>
-<p>example:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing priority queues</span><br><span class="line">#include &lt;iostream&gt;       // std::cout</span><br><span class="line">#include &lt;queue&gt;          // std::priority_queue</span><br><span class="line">#include &lt;vector&gt;         // std::vector</span><br><span class="line">#include &lt;functional&gt;     // std::greater</span><br><span class="line"></span><br><span class="line">class mycomparison</span><br><span class="line">&#123;</span><br><span class="line">  bool reverse;</span><br><span class="line">public:</span><br><span class="line">  mycomparison(const bool&amp; revparam=false)</span><br><span class="line">    &#123;reverse=revparam;&#125;</span><br><span class="line">  bool operator() (const int&amp; lhs, const int&amp;rhs) const</span><br><span class="line">  &#123;</span><br><span class="line">    if (reverse) return (lhs&gt;rhs);</span><br><span class="line">    else return (lhs&lt;rhs);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  int myints[]= &#123;10,60,50,20&#125;;</span><br><span class="line"></span><br><span class="line">  std::priority_queue&lt;int&gt; first;</span><br><span class="line">  std::priority_queue&lt;int&gt; second (myints,myints+4);</span><br><span class="line">  std::priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt; &gt;</span><br><span class="line">                            third (myints,myints+4);</span><br><span class="line">  // using mycomparison:</span><br><span class="line">  typedef std::priority_queue&lt;int,std::vector&lt;int&gt;,mycomparison&gt; mypq_type;</span><br><span class="line"></span><br><span class="line">  mypq_type fourth;                       // less-than comparison</span><br><span class="line">  mypq_type fifth (mycomparison(true));   // greater-than comparison</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>The example does not produce any output, but it constructs different priority_queue objects: - First is empty. - Second contains the four ints defined for myints, with 60 (the highest) at its top. - Third has the same four ints, but because it uses greater instead of the default (which is less), it has 10 as its top element. - Fourth and fifth are very similar to first: they are both empty, except that these use mycomparison for comparisons, which is a special stateful comparison function that behaves differently depending on a flag set on construction.</p>
-</blockquote>
-<p>api和队列基本操作相同:</p>
-<ul>
-<li><code>top</code> 访问队头元素</li>
-<li><code>empty</code> 队列是否为空</li>
-<li><code>size</code> 返回队列内元素个数</li>
-<li><code>push</code> 插入元素到队尾 (并排序)</li>
-<li><code>emplace</code> 原地构造一个元素并插入队列</li>
-<li><code>pop</code> 弹出队头元素</li>
-<li><code>swap</code> 交换内容</li>
-</ul>
-]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习</title>
     <url>/posts/607d6c62/</url>
     <content><![CDATA[<h2 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h2><p>Git是目前世界上最先进的分布式版本控制系统。</p>
@@ -666,6 +356,316 @@ C++11新提供的方法，类似如下方式：
 <p>##（7）了解静态成员的必要性</p>
 <h2 id="（8）了解静态成员、静态数据成员、成员函数的定义及使用"><a href="#（8）了解静态成员、静态数据成员、成员函数的定义及使用" class="headerlink" title="（8）了解静态成员、静态数据成员、成员函数的定义及使用"></a>（8）了解静态成员、静态数据成员、成员函数的定义及使用</h2><h2 id="（9）了解需要友元的原因、友元函数的使用"><a href="#（9）了解需要友元的原因、友元函数的使用" class="headerlink" title="（9）了解需要友元的原因、友元函数的使用"></a>（9）了解需要友元的原因、友元函数的使用</h2><p>友元是一种<strong>定义在类外部的普通函数</strong>，但它需要<strong>在类体内进行声明</strong>，为了与该类的成员函数加以区别，在声明时前面加以关键字friend。<strong>友元不是成员函数，但是它可以访问类中的私有成员</strong>。友元的作用在于提高程序的运行效率，但是，<strong>它破坏了类的封装性和隐藏性</strong>，使得非成员函数可以访问类的私有成员。</p>
 <h2 id="（10）掌握继承、多态与重载的概念"><a href="#（10）掌握继承、多态与重载的概念" class="headerlink" title="（10）掌握继承、多态与重载的概念"></a>（10）掌握继承、多态与重载的概念</h2><h2 id="（11）掌握继承的工作方式、派生类的构造"><a href="#（11）掌握继承的工作方式、派生类的构造" class="headerlink" title="（11）掌握继承的工作方式、派生类的构造"></a>（11）掌握继承的工作方式、派生类的构造</h2><h2 id="（12）掌握虚函数的定义及使用"><a href="#（12）掌握虚函数的定义及使用" class="headerlink" title="（12）掌握虚函数的定义及使用"></a>（12）掌握虚函数的定义及使用</h2><h2 id="（13）掌握多继承的构造顺序、继承的访问控制"><a href="#（13）掌握多继承的构造顺序、继承的访问控制" class="headerlink" title="（13）掌握多继承的构造顺序、继承的访问控制"></a>（13）掌握多继承的构造顺序、继承的访问控制</h2><h2 id="（14）掌握运算符重载的使用"><a href="#（14）掌握运算符重载的使用" class="headerlink" title="（14）掌握运算符重载的使用"></a>（14）掌握运算符重载的使用</h2><h2 id="（15）了解抽象类的定义与使用"><a href="#（15）了解抽象类的定义与使用" class="headerlink" title="（15）了解抽象类的定义与使用"></a>（15）了解抽象类的定义与使用</h2>]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ STL常用容器API总结</title>
+    <url>/posts/ce863392/</url>
+    <content><![CDATA[<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++ STL"></a>C++ STL</h2><p>C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类和函数可以实现多种流行和常用的算法和数据结构，如向量、链表、队列、栈。</p>
+<p>C++ 标准模板库的核心包括以下三个组件：</p>
+<ul>
+<li><strong>容器（Containers）</strong>: 容器是用来管理某一类对象的集合。C++ 提供了各种不同类型的容器，比如 deque、list、vector、map 等。</li>
+<li><strong>算法（Algorithms）</strong>: 算法作用于容器。它们提供了执行各种操作的方式，包括对容器内容执行初始化、排序、搜索和转换等操作。</li>
+<li><strong>迭代器（iterators）</strong>: 迭代器用于遍历对象集合的元素。这些集合可能是容器，也可能是容器的子集。</li>
+</ul>
+<p>这三个组件都带有丰富的预定义函数，帮助我们通过简单的方式处理复杂的任务。</p>
+<span id="more"></span>
+
+<h2 id="C-STL常用容器"><a href="#C-STL常用容器" class="headerlink" title="C++ STL常用容器"></a>C++ STL常用容器</h2><ul>
+<li><code>vector</code>：向量</li>
+<li><code>stack</code>：栈</li>
+<li><code>set</code>：集合</li>
+<li><code>queue</code>：队列</li>
+<li><code>list</code>：双向链表</li>
+<li><code>map</code>：地图</li>
+<li><code>string</code>：字符串</li>
+<li><code>deque</code>：双端队列</li>
+<li><code>priority_queue</code>：优先队列</li>
+</ul>
+<p>对于容器，主要的操作有：</p>
+<ul>
+<li>容器的建立</li>
+<li>插入元素</li>
+<li>删除元素</li>
+<li>查询</li>
+<li>遍历</li>
+<li>计算元素个数</li>
+<li>检查元素是否为空</li>
+<li>输出容器包含的内容</li>
+</ul>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p><code>vector</code>包含着一系列连续存储的元素,其行为和数组类似。访问Vector中的任意元素或从末尾添加元素都可以在<code>常量级时间复杂度</code>内完成，而查找特定值的元素所处的位置或是在Vector中插入元素则是<code>线性时间复杂度</code>。</p>
+<p>构造函数:</p>
+<ul>
+<li><p><code>vector();</code> 无参数 - 构造一个空的vector</p>
+</li>
+<li><p><code>vector(size_type num);</code> 数量(num) - 构造一个大小为num，值为Type默认值的Vector</p>
+</li>
+<li><p><code>vector(size_type num, const TYPE &amp;val);</code> 数量(num)和值(val) - 构造一个初始放入num个值为val的元素的Vector</p>
+</li>
+<li><p><code>vector(const vector &amp;from);</code> vector(from) - 构造一个与vector from 相同的vector</p>
+</li>
+<li><p><code>vector(input_iterator start, input_iterator end);</code> 迭代器(start)和迭代器(end) - 构造一个初始值为[start,end)区间元素的Vector(注:半开区间).</p>
+</li>
+<li><pre><code>vector(initializer_list&lt;value_type&gt; il, const allocator_type&amp; alloc = allocator_type());
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">  C++11新提供的方法，类似如下方式：</span><br><span class="line"></span><br><span class="line">  - `std::vector&lt;int&gt;a&#123;1, 2, 3, 4, 5&#125;;`</span><br><span class="line">  - `std::vector&lt;int&gt;a = &#123;1, 2, 3, 4, 5&#125;;`</span><br><span class="line"></span><br><span class="line">常用API：</span><br><span class="line"></span><br><span class="line">- Operators : 对vector进行赋值或比较</span><br><span class="line">  - `v1 == v2`</span><br><span class="line">  - `v1 != v2`</span><br><span class="line">  - `v1 &lt;= v2`</span><br><span class="line">  - `v1 &gt;= v2`</span><br><span class="line">  - `v1 &lt; v2`</span><br><span class="line">  - `v1 &gt; v2`</span><br><span class="line">  - `v[]`</span><br><span class="line">- `assign()`对Vector中的元素赋值</span><br><span class="line">- `at()` : 返回指定位置的元素</span><br><span class="line">- `back()` : 返回最末一个元素</span><br><span class="line">- `begin()` : 返回第一个元素的迭代器</span><br><span class="line">- `capacity()` : 返回vector所能容纳的元素数量(在不重新分配内存的情况下）</span><br><span class="line">- `clear()` : 清空所有元素</span><br><span class="line">- `empty()` : 判断Vector是否为空（返回true时为空）</span><br><span class="line">- `end()` : 返回最末元素的迭代器(译注:实指向最末元素的下一个位置)</span><br><span class="line">- `erase()` : 删除指定元素</span><br><span class="line">- `front()` : 返回第一个元素</span><br><span class="line">- `get_allocator()` : 返回vector的内存分配器</span><br><span class="line">- `insert()` : 插入元素到Vector中</span><br><span class="line">- `max_size()` : 返回Vector所能容纳元素的最大数量（上限）</span><br><span class="line">- `pop_back()` : 移除最后一个元素</span><br><span class="line">- `push_back()` : 在Vector最后添加一个元素</span><br><span class="line">- `rbegin()` : 返回Vector尾部的逆迭代器</span><br><span class="line">- `rend()` : 返回Vector起始的逆迭代器</span><br><span class="line">- `reserve()` : 设置Vector最小的元素容纳数量</span><br><span class="line">- `resize()` : 改变Vector元素数量的大小</span><br><span class="line">- `size()` : 返回Vector元素数量的大小</span><br><span class="line">- `swap()` : 交换两个Vector</span><br><span class="line"></span><br><span class="line">## stack</span><br><span class="line"></span><br><span class="line">C++ stack（堆栈）实现了一个**先进后出**（FILO）的数据结构。</span><br><span class="line"></span><br><span class="line">构造函数：</span><br><span class="line"></span><br><span class="line">- `stack&lt;T&gt; stkT;` : 采用模板类实现，stack对象的默认构造形式</span><br><span class="line">- `stack(const stack &amp;stk);` : 拷贝构造函数</span><br><span class="line"></span><br><span class="line">常用方法：</span><br><span class="line"></span><br><span class="line">- `size()`: 返回栈中的元素数</span><br><span class="line">- `top()`: 返回栈顶的元素</span><br><span class="line">- `pop()`: 从栈中取出并删除元素</span><br><span class="line">- `push(x)`: 向栈中添加元素x</span><br><span class="line">- `empty()`: 在栈为空时返回true</span><br><span class="line"></span><br><span class="line">## set</span><br><span class="line"></span><br><span class="line">Sets are containers that store unique elements following a specific order.</span><br><span class="line"></span><br><span class="line">集合中以一种特定的顺序保存唯一的元素。</span><br><span class="line"></span><br><span class="line">构造函数:</span><br><span class="line"></span><br><span class="line">- `set();` 无参数 - 构造一个空的set</span><br><span class="line"></span><br><span class="line">- `set(InputIterator first, InputIterator last)` : 迭代器的方式构造set</span><br><span class="line"></span><br><span class="line">- `set(const set &amp;from);` : copyd的方式构造一个与set from 相同的set</span><br><span class="line"></span><br><span class="line">- `set(input_iterator start, input_iterator end);` 迭代器(start)和迭代器(end) - 构造一个初始值为[start,end)区间元素的Vector(注:半开区间).</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  set (initializer_list&lt;value_type&gt; il, const key_compare&amp; comp = key_compare(), const allocator_type&amp; alloc = allocator_type());</span><br></pre></td></tr></table></figure>
+
+ 
+
+C++11新提供的方法，类似如下方式：
+
+- `std::set&lt;int&gt;a&#123;1, 2, 3, 4, 5&#125;;`
+</code></pre>
+</li>
+</ul>
+<p>example:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing sets</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line"></span><br><span class="line">bool fncomp (int lhs, int rhs) &#123;return lhs&lt;rhs;&#125;</span><br><span class="line"></span><br><span class="line">struct classcomp &#123;</span><br><span class="line">  bool operator() (const int&amp; lhs, const int&amp; rhs) const</span><br><span class="line">  &#123;return lhs&lt;rhs;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::set&lt;int&gt; first;                           // empty set of ints</span><br><span class="line"></span><br><span class="line">  int myints[]= &#123;10,20,30,40,50&#125;;</span><br><span class="line">  std::set&lt;int&gt; second (myints,myints+5);        // range</span><br><span class="line"></span><br><span class="line">  std::set&lt;int&gt; third (second);                  // a copy of second</span><br><span class="line"></span><br><span class="line">  std::set&lt;int&gt; fourth (second.begin(), second.end());  // iterator ctor.</span><br><span class="line"></span><br><span class="line">  std::set&lt;int,classcomp&gt; fifth;                 // class as Compare</span><br><span class="line"></span><br><span class="line">  bool(*fn_pt)(int,int) = fncomp;</span><br><span class="line">  std::set&lt;int,bool(*)(int,int)&gt; sixth (fn_pt);  // function pointer as Compare</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常用API：</p>
+<ul>
+<li><code>begin()</code> : 返回指向第一个元素的迭代器</li>
+<li><code>clear()</code> : 清除所有元素</li>
+<li><code>count()</code> : 返回某个值元素的个数</li>
+<li><code>empty()</code> : 如果集合为空，返回true</li>
+<li><code>end()</code> : 返回指向最后一个元素的迭代器</li>
+<li><code>equal_range()</code> : 返回集合中与给定值相等的上下限的两个迭代器</li>
+<li><code>erase()</code> : 删除集合中的元素</li>
+<li><code>find()</code> : 返回一个指向被查找到元素的迭代器</li>
+<li><code>get_allocator()</code> : 返回集合的分配器</li>
+<li><code>insert()</code> : 在集合中插入元素</li>
+<li><code>lower_bound()</code> : 返回指向大于（或等于）某值的第一个元素的迭代器</li>
+<li><code>key_comp()</code> : 返回一个用于元素间值比较的函数</li>
+<li><code>max_size()</code> : 返回集合能容纳的元素的最大限值</li>
+<li><code>rbegin()</code> : 返回指向集合中最后一个元素的反向迭代器</li>
+<li><code>rend()</code> : 返回指向集合中第一个元素的反向迭代器</li>
+<li><code>size()</code> : 集合中元素的数目</li>
+<li><code>swap()</code> : 交换两个集合变量</li>
+<li><code>upper_bound()</code> : 返回大于某个值元素的迭代器</li>
+<li><code>value_comp()</code> : 返回一个用于比较元素间的值的函数</li>
+</ul>
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>C++队列是一种容器适配器，它给予程序员一种先进先出(FIFO)的数据结构。</p>
+<p>构造函数：</p>
+<ul>
+<li><code>explicit queue (const container_type&amp; ctnr);</code></li>
+<li><code>explicit queue (container_type&amp;&amp; ctnr = container_type());</code></li>
+<li><code>template &lt;class Alloc&gt; explicit queue (const Alloc&amp; alloc);</code></li>
+<li><code>template &lt;class Alloc&gt; queue (const container_type&amp; ctnr, const Alloc&amp; alloc);</code></li>
+<li><code>template &lt;class Alloc&gt; queue (container_type&amp;&amp; ctnr, const Alloc&amp; alloc);</code></li>
+<li><code>template &lt;class Alloc&gt; queue (const queue&amp; x, const Alloc&amp; alloc);</code></li>
+<li><code>template &lt;class Alloc&gt; queue (queue&amp;&amp; x, const Alloc&amp; alloc);</code></li>
+</ul>
+<p>example:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing queues</span><br><span class="line">#include &lt;iostream&gt;       // std::cout</span><br><span class="line">#include &lt;deque&gt;          // std::deque</span><br><span class="line">#include &lt;list&gt;           // std::list</span><br><span class="line">#include &lt;queue&gt;          // std::queue</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::deque&lt;int&gt; mydeck (3,100);        // deque with 3 elements</span><br><span class="line">  std::list&lt;int&gt; mylist (2,200);         // list with 2 elements</span><br><span class="line"></span><br><span class="line">  std::queue&lt;int&gt; first;                 // empty queue</span><br><span class="line">  std::queue&lt;int&gt; second (mydeck);       // queue initialized to copy of deque</span><br><span class="line"></span><br><span class="line">  std::queue&lt;int,std::list&lt;int&gt;&gt; third; // empty queue with list as underlying container</span><br><span class="line">  std::queue&lt;int,std::list&lt;int&gt;&gt; fourth (mylist);</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; &quot;size of first: &quot; &lt;&lt; first.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">  std::cout &lt;&lt; &quot;size of second: &quot; &lt;&lt; second.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">  std::cout &lt;&lt; &quot;size of third: &quot; &lt;&lt; third.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">  std::cout &lt;&lt; &quot;size of fourth: &quot; &lt;&lt; fourth.size() &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">size of first: 0</span><br><span class="line">size of second: 3</span><br><span class="line">size of third: 0</span><br><span class="line">size of fourth: 2</span><br></pre></td></tr></table></figure>
+
+<p>常用API：</p>
+<ul>
+<li><code>back()</code> : 返回最后一个元素</li>
+<li><code>empty()</code> : 如果队列空则返回真</li>
+<li><code>front()</code> : 返回第一个元素</li>
+<li><code>pop()</code> : 删除第一个元素</li>
+<li><code>push()</code> : 在末尾加入一个元素</li>
+<li><code>size()</code> : 返回队列中元素的个数</li>
+</ul>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>Lists将元素按顺序储存在链表中. 与 向量(vectors)相比, 它允许快速的插入和删除，但是随机访问却比较慢.</p>
+<p>构造函数：</p>
+<ul>
+<li><code>list (const allocator_type&amp; alloc = allocator_type());</code></li>
+<li><code>list (size_type n, const value_type&amp; val = value_type(), const allocator_type&amp; alloc = allocator_type());</code></li>
+<li><code>template &lt;class InputIterator&gt; list (InputIterator first, InputIterator last, const allocator_type&amp; alloc = allocator_type());</code></li>
+<li><code>list (const list&amp; x);</code></li>
+</ul>
+<p>常用API：</p>
+<ul>
+<li><code>assign()</code> : 给list赋值</li>
+<li><code>back()</code> : 返回最后一个元素</li>
+<li><code>begin()</code> : 返回指向第一个元素的迭代器</li>
+<li><code>clear()</code> : 删除所有元素</li>
+<li><code>empty()</code> : 如果list是空的则返回true</li>
+<li><code>end()</code> : 返回末尾的迭代器</li>
+<li><code>erase()</code> : 删除一个元素</li>
+<li><code>front()</code> : 返回第一个元素</li>
+<li><code>get_allocator()</code> : 返回list的配置器</li>
+<li><code>insert()</code> : 插入一个元素到list中</li>
+<li><code>max_size()</code> : 返回list能容纳的最大元素数量</li>
+<li><code>merge()</code> : 合并两个list</li>
+<li><code>pop_back()</code> : 删除最后一个元素</li>
+<li><code>pop_front()</code> : 删除第一个元素</li>
+<li><code>push_back()</code> : 在list的末尾添加一个元素</li>
+<li><code>push_front()</code> : 在list的头部添加一个元素</li>
+<li><code>rbegin()</code> : 返回指向第一个元素的逆向迭代器</li>
+<li><code>remove()</code> : 从list删除元素</li>
+<li><code>remove_if()</code> : 按指定条件删除元素</li>
+<li><code>rend()</code> : 指向list末尾的逆向迭代器</li>
+<li><code>resize()</code> : 改变list的大小</li>
+<li><code>reverse()</code> : 把list的元素倒转</li>
+<li><code>size()</code> : 返回list中的元素个数</li>
+<li><code>sort()</code> : 给list排序</li>
+<li><code>splice()</code> : 合并两个list</li>
+<li><code>swap()</code> : 交换两个list</li>
+<li><code>unique()</code> : 删除list中重复的元素</li>
+</ul>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>C++ Maps是一种关联式容器，包含“关键字&#x2F;值”对</p>
+<p>构造函数：</p>
+<ul>
+<li><code>map (const key_compare&amp; comp = key_compare(), const allocator_type&amp; alloc = allocator_type());</code></li>
+<li><code>template &lt;class InputIterator&gt; map (InputIterator first, InputIterator last,const key_compare&amp; comp = key_compare(),const allocator_type&amp; = allocator_type());</code></li>
+<li><code>map (const map&amp; x);</code></li>
+<li><code>map (const map&amp; x, const allocator_type&amp; alloc);</code></li>
+<li><code>map (map&amp;&amp; x);</code></li>
+<li><code>map (map&amp;&amp; x, const allocator_type&amp; alloc);</code></li>
+<li><code>map (initializer_list&lt;value_type&gt; il, const key_compare&amp; comp = key_compare(), const allocator_type&amp; alloc = allocator_type());</code></li>
+</ul>
+<p>example:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing maps</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line"></span><br><span class="line">bool fncomp (char lhs, char rhs) &#123;return lhs&lt;rhs;&#125;</span><br><span class="line"></span><br><span class="line">struct classcomp &#123;</span><br><span class="line">  bool operator() (const char&amp; lhs, const char&amp; rhs) const</span><br><span class="line">  &#123;return lhs&lt;rhs;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::map&lt;char,int&gt; first;</span><br><span class="line"></span><br><span class="line">  first[&#x27;a&#x27;]=10;</span><br><span class="line">  first[&#x27;b&#x27;]=30;</span><br><span class="line">  first[&#x27;c&#x27;]=50;</span><br><span class="line">  first[&#x27;d&#x27;]=70;</span><br><span class="line"></span><br><span class="line">  std::map&lt;char,int&gt; second (first.begin(),first.end());</span><br><span class="line"></span><br><span class="line">  std::map&lt;char,int&gt; third (second);</span><br><span class="line"></span><br><span class="line">  std::map&lt;char,int,classcomp&gt; fourth;                 // class as Compare</span><br><span class="line"></span><br><span class="line">  bool(*fn_pt)(char,char) = fncomp;</span><br><span class="line">  std::map&lt;char,int,bool(*)(char,char)&gt; fifth (fn_pt); // function pointer as Compare</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常用API：</p>
+<ul>
+<li><code>begin()</code> : 返回指向map头部的迭代器</li>
+<li><code>clear()</code> : 删除所有元素</li>
+<li><code>count()</code> : 返回指定元素出现的次数</li>
+<li><code>empty()</code> : 如果map为空则返回true</li>
+<li><code>end()</code> : 返回指向map末尾的迭代器</li>
+<li><code>equal_range()</code> : 返回特殊条目的迭代器对</li>
+<li><code>erase()</code> : 删除一个元素</li>
+<li><code>find()</code> : 查找一个元素</li>
+<li><code>get_allocator()</code> : 返回map的配置器</li>
+<li><code>insert()</code> : 插入元素–</li>
+<li><code>key_comp()</code> : 返回比较元素key的函数</li>
+<li><code>lower_bound()</code> : 返回键值&gt;&#x3D;给定元素的第一个位置</li>
+<li><code>max_size()</code> : 返回可以容纳的最大元素个数</li>
+<li><code>rbegin()</code> : 返回一个指向map尾部的逆向迭代器</li>
+<li><code>rend()</code> : 返回一个指向map头部的逆向迭代器</li>
+<li><code>size()</code> : 返回map中元素的个数</li>
+<li><code>swap()</code> : 交换两个map</li>
+<li><code>upper_bound()</code> : 返回键值&gt;给定元素的第一个位置</li>
+<li><code>value_comp()</code> : 返回比较元素value的函数</li>
+</ul>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><h3 id="1-string构造函数"><a href="#1-string构造函数" class="headerlink" title="1.string构造函数"></a>1.string构造函数</h3><ul>
+<li><code>string();</code>&#x2F;&#x2F;创建一个空的字符串</li>
+<li><code>string(const string&amp; str);</code>&#x2F;&#x2F;使用一个string对象初始化另一个string对象</li>
+<li><code>string(const char* s);</code>&#x2F;&#x2F;使用字符串s初始化</li>
+<li><code>string(int n,char c);</code>&#x2F;&#x2F;使用n个字符c初始化</li>
+</ul>
+<h3 id="2-string基本赋值操作"><a href="#2-string基本赋值操作" class="headerlink" title="2.string基本赋值操作"></a>2.string基本赋值操作</h3><ul>
+<li><code>string&amp; operator=(const char* s);</code>&#x2F;&#x2F;char*类型字符串 赋值给当前的字符串</li>
+<li><code>string&amp; operator=(const string &amp;s);</code>&#x2F;&#x2F;把字符串s赋值给当前的字符串</li>
+<li><code>string&amp; operator=(char c);</code>&#x2F;&#x2F;字符赋值给当前的字符串</li>
+<li><code>string&amp; assign(const char* s);</code>&#x2F;&#x2F;把字符串s赋值给当前的字符串</li>
+<li><code>string&amp; assign(const char* s,int n);</code>&#x2F;&#x2F;把字符串s的前n个字符赋值给当前的字符串</li>
+<li><code>string&amp; assign(const string &amp;s);</code>&#x2F;&#x2F;把字符串s赋值给当前的字符串</li>
+<li><code>string&amp; assign(int n,char c);</code>&#x2F;&#x2F;用n个字符c赋值给当前字符串</li>
+<li><code>string&amp; assign(const string &amp;s,int start,int n);</code>&#x2F;&#x2F;将s从start开始n个字符赋值给字符串</li>
+</ul>
+<h3 id="3-string存取字符操作"><a href="#3-string存取字符操作" class="headerlink" title="3.string存取字符操作"></a>3.string存取字符操作</h3><ul>
+<li><code>char&amp; operator[](int n);</code>&#x2F;&#x2F;通过<code>[]</code>方式取字符</li>
+<li><code>char&amp; at(int n);</code>&#x2F;&#x2F;通过at方法获取字符</li>
+</ul>
+<h3 id="4-string拼接操作"><a href="#4-string拼接操作" class="headerlink" title="4.string拼接操作"></a>4.string拼接操作</h3><ul>
+<li><code>string&amp; operator+=(const string&amp; str);</code>&#x2F;&#x2F;重载+&#x3D;运算符</li>
+<li><code>string&amp; operator+=(const char* str);</code>&#x2F;&#x2F;重载+&#x3D;运算符</li>
+<li><code>string&amp; operator+=(const char c);</code>&#x2F;&#x2F;重载+&#x3D;运算符</li>
+<li><code>string&amp; append(const char *s);</code>&#x2F;&#x2F;把字符串s连接到当前字符串结尾</li>
+<li><code>string&amp; append(const char *s,int n);</code>&#x2F;&#x2F;把字符串s的前n个字符连接到当前字符串结尾</li>
+<li><code>string&amp; append(const string &amp;s);</code>&#x2F;&#x2F;同operator+&#x3D;（）</li>
+<li><code>string&amp; append(const string &amp;s,int pos,int n);</code>&#x2F;&#x2F;把字符串s中从pos开始的n个字符连接到当前字符串结尾</li>
+<li><code>string&amp; append(int n,char c);</code>&#x2F;&#x2F;在当前字符串结尾添加n个字符c</li>
+</ul>
+<h3 id="5-string查找和替换"><a href="#5-string查找和替换" class="headerlink" title="5.string查找和替换"></a>5.string查找和替换</h3><ul>
+<li><code>int find(const string&amp; str,int pos = 0)const;</code>&#x2F;&#x2F;查找str第一次出现的位置，从pos开始查找</li>
+<li><code>int find(const char* s,int pos = 0)const;</code>&#x2F;&#x2F;查找s第一次出现位置，从pos开始查找</li>
+<li><code>int find(const char *s,int pos,int n)const;</code>&#x2F;&#x2F;从pos位置查找s的前n个字符第一次位置</li>
+<li><code>int find(const char c,int pos = 0)const;</code>&#x2F;&#x2F;查找字符c第一次出现位置</li>
+<li><code>int rfind(const string&amp; str, int pos = npos)const;</code>&#x2F;&#x2F;查找str最后一次出现位置，从pos开始查找</li>
+<li><code>int rfind(const char* s,int pos = npos)const;</code>&#x2F;&#x2F;查找s最后一次出现位置，从pos开始查找</li>
+<li><code>int rfind(const char* s,int pos,int n )const;</code>&#x2F;&#x2F;从pos查找s的前n个字符最后一次位置</li>
+<li><code>int rfind(const char c,int pos = 0)const;</code>&#x2F;&#x2F;查找字符c最后一次出现位置</li>
+<li><code>string&amp; replace(int pos,int n,const string&amp; str);</code>&#x2F;&#x2F;替换从pos开始的n个字符为字符串str</li>
+<li><code>string&amp; replace(int pos,int n,const char* s);</code>&#x2F;&#x2F;替换从pos开始的n个字符为字符串s</li>
+</ul>
+<h3 id="6-string-比较操作"><a href="#6-string-比较操作" class="headerlink" title="6.string 比较操作"></a>6.string 比较操作</h3><ul>
+<li><code>int compare(const string &amp;s)const;</code>&#x2F;&#x2F;与字符串s比较</li>
+<li><code>int compare(const char*s)const;</code>&#x2F;&#x2F;与字符串s比较</li>
+<li>compare函数在&gt;时返回1，&lt;时返回-1，相等时返回0，比较区分大小写，逐个字符比较</li>
+</ul>
+<h3 id="7-string子串"><a href="#7-string子串" class="headerlink" title="7.string子串"></a>7.string子串</h3><ul>
+<li><code>string substr(int pos = 0,int n = npos)const;</code>&#x2F;&#x2F;返回由pos开始的n个字符组成的字符串</li>
+</ul>
+<h3 id="8-string插入和删除操作"><a href="#8-string插入和删除操作" class="headerlink" title="8.string插入和删除操作"></a>8.string插入和删除操作</h3><ul>
+<li><code>string&amp; insert(int pos,const char* s);</code>&#x2F;&#x2F;插入字符串</li>
+<li><code>string&amp; insert(int pos,const string &amp;str);</code>&#x2F;&#x2F;插入字符串</li>
+<li><code>string&amp; insert(int pos,int n,char c);</code>&#x2F;&#x2F;在指定位置插入n个字符c</li>
+<li><code>string&amp; erase(int pos,int n = npos);</code>&#x2F;&#x2F;删除从pos开始的n个字符</li>
+</ul>
+<h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h2><p>deque是Double-Ended Queues(双向队列)的缩写。</p>
+<p>双向队列和向量很相似，但是它允许在容器头部快速插入和删除（就像在尾部一样）。</p>
+<h3 id="1-deque构造函数"><a href="#1-deque构造函数" class="headerlink" title="1.deque构造函数"></a>1.deque构造函数</h3><ul>
+<li><code>deque&lt;T&gt; queT;</code>&#x2F;&#x2F;queue采用模板类实现，queue对象的默认构造形式</li>
+<li><code>deque&lt;T&gt; queT(size);</code>&#x2F;&#x2F;构造大小为size的deque，其中值为T类型的默认值</li>
+<li><code>deque&lt;T&gt; queT(size, val);</code>&#x2F;&#x2F;构造大小为size的deque，其中值为val</li>
+<li><code>deque(const deque &amp;que);</code>&#x2F;&#x2F;拷贝构造函数</li>
+<li><code>deque(input_iterator start, input_iterator end);</code>&#x2F;&#x2F;迭代器构造函数</li>
+</ul>
+<p>example:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing deques</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  unsigned int i;</span><br><span class="line"></span><br><span class="line">  // constructors used in the same order as described above:</span><br><span class="line">  std::deque&lt;int&gt; first;                                // empty deque of ints</span><br><span class="line">  std::deque&lt;int&gt; second (4,100);                       // four ints with value 100</span><br><span class="line">  std::deque&lt;int&gt; third (second.begin(),second.end());  // iterating through second</span><br><span class="line">  std::deque&lt;int&gt; fourth (third);                       // a copy of third</span><br><span class="line"></span><br><span class="line">  // the iterator constructor can be used to copy arrays:</span><br><span class="line">  int myints[] = &#123;16,2,77,29&#125;;</span><br><span class="line">  std::deque&lt;int&gt; fifth (myints, myints + sizeof(myints) / sizeof(int) );</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; &quot;The contents of fifth are:&quot;;</span><br><span class="line">  for (std::deque&lt;int&gt;::iterator it = fifth.begin(); it!=fifth.end(); ++it)</span><br><span class="line">    std::cout &lt;&lt; &#x27; &#x27; &lt;&lt; *it;</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The contents of fifth are: 16 2 77 29 </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-deque存取、插入和删除操作"><a href="#2-deque存取、插入和删除操作" class="headerlink" title="2.deque存取、插入和删除操作"></a>2.deque存取、插入和删除操作</h3><ul>
+<li><code>back();</code>&#x2F;&#x2F;返回最后一个元素</li>
+<li><code>front();</code>&#x2F;&#x2F;返回第一个元素</li>
+<li><code>insert();</code>&#x2F;&#x2F;</li>
+<li><code>pop_back();</code>&#x2F;&#x2F;删除尾部的元素</li>
+<li><code>pop_front();</code>&#x2F;&#x2F;删除头部的元素</li>
+<li><code>push_back();</code>&#x2F;&#x2F;在尾部加入一个元素</li>
+<li><code>push_front();</code>&#x2F;&#x2F;在头部加入一个元素</li>
+<li><code>at();</code>&#x2F;&#x2F;访问指定位置元素</li>
+</ul>
+<blockquote>
+<p>注：queue只有push和pop方法，在尾部加入和删除元素。</p>
+</blockquote>
+<h3 id="3-deque赋值操作"><a href="#3-deque赋值操作" class="headerlink" title="3.deque赋值操作"></a>3.deque赋值操作</h3><ul>
+<li><code>operator[] (size_type n);</code>&#x2F;&#x2F;重载[]操作符</li>
+</ul>
+<h3 id="4-deque大小操作"><a href="#4-deque大小操作" class="headerlink" title="4.deque大小操作"></a>4.deque大小操作</h3><ul>
+<li><code>empty()</code>;&#x2F;&#x2F;判断队列是否为空</li>
+<li><code>size()</code>;&#x2F;&#x2F;返回队列的大小</li>
+</ul>
+<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>优先队列类似队列， 但是在这个数据结构中的元素按照一定的规则排列有序。</p>
+<p>在优先队列中，元素被赋予优先级。当访问元素时，具有最高优先级的元素最先删除。优先队列具有<strong>最高优先级先出</strong> （first in, largest out）的行为特征。</p>
+<p>首先要包含头文件#include, 他和queue不同的就在于我们可以自定义其中数据的优先级, 让优先级高的排在队列前面,优先出队。</p>
+<p>优先队列具有队列的所有特性，包括队列的基本操作，只是在这基础上添加了内部的一个排序，它<strong>本质是一个堆实现的</strong>。</p>
+<p>构造函数： <code>priority_queue&lt;Type, Container, Functional&gt;</code></p>
+<ul>
+<li>Type 就是数据类型，</li>
+<li>Container 就是容器类型（Container必须是具备<strong>随机存取</strong>能力的容器，支持如下方法：<code>empty()</code>, <code>size()</code>, <code>front()</code>, <code>push_back()</code>,<code>pop_back()</code>。比如vector,deque等等，但不能用list。STL里面默认用的是vector）。可选</li>
+<li>Functional 就是比较的方式。可选</li>
+</ul>
+<p>当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆(Functional是less)。</p>
+<p>example:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// constructing priority queues</span><br><span class="line">#include &lt;iostream&gt;       // std::cout</span><br><span class="line">#include &lt;queue&gt;          // std::priority_queue</span><br><span class="line">#include &lt;vector&gt;         // std::vector</span><br><span class="line">#include &lt;functional&gt;     // std::greater</span><br><span class="line"></span><br><span class="line">class mycomparison</span><br><span class="line">&#123;</span><br><span class="line">  bool reverse;</span><br><span class="line">public:</span><br><span class="line">  mycomparison(const bool&amp; revparam=false)</span><br><span class="line">    &#123;reverse=revparam;&#125;</span><br><span class="line">  bool operator() (const int&amp; lhs, const int&amp;rhs) const</span><br><span class="line">  &#123;</span><br><span class="line">    if (reverse) return (lhs&gt;rhs);</span><br><span class="line">    else return (lhs&lt;rhs);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  int myints[]= &#123;10,60,50,20&#125;;</span><br><span class="line"></span><br><span class="line">  std::priority_queue&lt;int&gt; first;</span><br><span class="line">  std::priority_queue&lt;int&gt; second (myints,myints+4);</span><br><span class="line">  std::priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt; &gt;</span><br><span class="line">                            third (myints,myints+4);</span><br><span class="line">  // using mycomparison:</span><br><span class="line">  typedef std::priority_queue&lt;int,std::vector&lt;int&gt;,mycomparison&gt; mypq_type;</span><br><span class="line"></span><br><span class="line">  mypq_type fourth;                       // less-than comparison</span><br><span class="line">  mypq_type fifth (mycomparison(true));   // greater-than comparison</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>The example does not produce any output, but it constructs different priority_queue objects: - First is empty. - Second contains the four ints defined for myints, with 60 (the highest) at its top. - Third has the same four ints, but because it uses greater instead of the default (which is less), it has 10 as its top element. - Fourth and fifth are very similar to first: they are both empty, except that these use mycomparison for comparisons, which is a special stateful comparison function that behaves differently depending on a flag set on construction.</p>
+</blockquote>
+<p>api和队列基本操作相同:</p>
+<ul>
+<li><code>top</code> 访问队头元素</li>
+<li><code>empty</code> 队列是否为空</li>
+<li><code>size</code> 返回队列内元素个数</li>
+<li><code>push</code> 插入元素到队尾 (并排序)</li>
+<li><code>emplace</code> 原地构造一个元素并插入队列</li>
+<li><code>pop</code> 弹出队头元素</li>
+<li><code>swap</code> 交换内容</li>
+</ul>
+]]></content>
       <categories>
         <category>coding</category>
       </categories>
