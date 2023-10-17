@@ -6,7 +6,7 @@
   <link href="https://leoz.work/atom.xml" rel="self"/>
   
   <link href="https://leoz.work/"/>
-  <updated>2023-04-05T14:13:23.199Z</updated>
+  <updated>2023-10-17T15:05:52.982Z</updated>
   <id>https://leoz.work/</id>
   
   <author>
@@ -17,11 +17,101 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>svm学习</title>
+    <title>西瓜书第一章</title>
+    <link href="https://leoz.work/posts/65b5ea6b/"/>
+    <id>https://leoz.work/posts/65b5ea6b/</id>
+    <published>2023-10-17T15:03:22.000Z</published>
+    <updated>2023-10-17T15:05:52.982Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;绪论&quot;&gt;&lt;a href=&quot;#绪论&quot; class=&quot;headerlink&quot; title=&quot;绪论&quot;&gt;&lt;/a&gt;绪论&lt;/h1&gt;&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://leoz.work/categories/machine-learning/"/>
+    
+    
+    <category term="machine learning" scheme="https://leoz.work/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库速成</title>
+    <link href="https://leoz.work/posts/b1aeb731/"/>
+    <id>https://leoz.work/posts/b1aeb731/</id>
+    <published>2023-04-08T06:18:06.000Z</published>
+    <updated>2023-04-08T06:44:31.542Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;第一章-绪论&quot;&gt;&lt;a href=&quot;#第一章-绪论&quot; class=&quot;headerlink&quot; title=&quot;第一章 绪论&quot;&gt;&lt;/a&gt;第一章 绪论&lt;/h2&gt;&lt;h3 id=&quot;1、数据和语义的关系？&quot;&gt;&lt;a href=&quot;#1、数据和语义的关系？&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="数据库" scheme="https://leoz.work/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件工程</title>
+    <link href="https://leoz.work/posts/7821ac43/"/>
+    <id>https://leoz.work/posts/7821ac43/</id>
+    <published>2023-04-08T05:28:03.000Z</published>
+    <updated>2023-04-08T06:13:06.708Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、软件与软件工程&quot;&gt;&lt;a href=&quot;#一、软件与软件工程&quot; class=&quot;headerlink&quot; title=&quot;一、软件与软件工程&quot;&gt;&lt;/a&gt;一、软件与软件工程&lt;/h1&gt;&lt;h2 id=&quot;软件危机&quot;&gt;&lt;a href=&quot;#软件危机&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="软件工程" scheme="https://leoz.work/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习中常见的几种梯度下降法</title>
+    <link href="https://leoz.work/posts/f65f790f/"/>
+    <id>https://leoz.work/posts/f65f790f/</id>
+    <published>2023-04-08T05:13:30.000Z</published>
+    <updated>2023-04-08T05:19:22.837Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;批量梯度下降-BGD-、随机梯度下降-SGD-、小批量梯度下降-MBGD&quot;&gt;&lt;a href=&quot;#批量梯度下降-BGD-、随机梯度下降-SGD-、小批量梯度下降-MBGD&quot; class=&quot;headerlink&quot; title=&quot;批量梯度下降(BGD)、随机梯度下降(SGD)、小批量梯度下降(MBGD)&quot;&gt;&lt;/a&gt;批量梯度下降(BGD)、随机梯度下降(SGD)、小批量梯度下降(MBGD)&lt;/h1&gt;&lt;p&gt;梯度下降法作为机器学习中较常使用的优化算法，其有着3种不同的形式：批量梯度下降（Batch Gradient Descent）、随机梯度下降（Stochastic Gradient Descent）、小批量梯度下降（Mini-Batch Gradient Descent）。其中小批量梯度下降法也常用在深度学习中进行模型的训练。接下来，我们将对这3种不同的梯度下降法进行理解。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="machine learning" scheme="https://leoz.work/categories/machine-learning/"/>
+    
+    
+    <category term="machine learning" scheme="https://leoz.work/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>svm原理初步学习和数学公式推导</title>
     <link href="https://leoz.work/posts/447d0726/"/>
     <id>https://leoz.work/posts/447d0726/</id>
     <published>2023-04-04T11:36:39.000Z</published>
-    <updated>2023-04-05T14:13:23.199Z</updated>
+    <updated>2023-04-08T05:19:48.090Z</updated>
     
     
       
@@ -34,15 +124,19 @@
     
     
     
+    <category term="machine learning" scheme="https://leoz.work/categories/machine-learning/"/>
+    
+    
+    <category term="machine learning" scheme="https://leoz.work/tags/machine-learning/"/>
     
   </entry>
   
   <entry>
-    <title>Git学习</title>
+    <title>Git学习及本地部署</title>
     <link href="https://leoz.work/posts/607d6c62/"/>
     <id>https://leoz.work/posts/607d6c62/</id>
     <published>2023-04-03T15:35:38.000Z</published>
-    <updated>2023-04-03T16:38:09.470Z</updated>
+    <updated>2023-04-08T05:18:00.437Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Git是什么？&quot;&gt;&lt;a href=&quot;#Git是什么？&quot; class=&quot;headerlink&quot; title=&quot;Git是什么？&quot;&gt;&lt;/a&gt;Git是什么？&lt;/h2&gt;&lt;p&gt;Git是目前世界上最先进的分布式版本控制系统。&lt;/p&gt;
@@ -102,26 +196,6 @@
   </entry>
   
   <entry>
-    <title>面向对象程序设计(C++语言)</title>
-    <link href="https://leoz.work/posts/68eaf0fe/"/>
-    <id>https://leoz.work/posts/68eaf0fe/</id>
-    <published>2023-04-01T11:23:30.000Z</published>
-    <updated>2023-04-03T12:23:09.305Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;a href=&quot;#（1）掌握面向对象程序设计的基本原则&quot; class=&quot;headerlink&quot; title=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;/a&gt;（1）掌握面向对象程序设计的基本原则&lt;/h2&gt;&lt;p&gt;在软件开发过程中，随着系统复杂度的增加，业务的变更，程序员面临着耦合性，内聚性，可维护性，可扩展性，可重用性的挑战。而良好的设计模式就可以解决此类问题。设计模式是包含了面向对象的精髓，熟练掌握面向对象设计&amp;#x2F;分析是掌握设计模式的基础。可以帮助我们考虑代码结构，使代码易于维护、易于扩展、易于阅读。&lt;/p&gt;
-&lt;p&gt;那么设计模式本身也是有自己需要遵守的原则，也是各种设计模式的基础。那么设计模式有常用的七大原则。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="coding" scheme="https://leoz.work/categories/coding/"/>
-    
-    
-    <category term="编程" scheme="https://leoz.work/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>新设置OpenWrt无法正确联网及解决方法</title>
     <link href="https://leoz.work/posts/eac71423/"/>
     <id>https://leoz.work/posts/eac71423/</id>
@@ -143,6 +217,26 @@
     
     
     <category term="杂谈" scheme="https://leoz.work/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象程序设计(C++语言)</title>
+    <link href="https://leoz.work/posts/68eaf0fe/"/>
+    <id>https://leoz.work/posts/68eaf0fe/</id>
+    <published>2023-04-01T11:23:30.000Z</published>
+    <updated>2023-04-03T12:23:09.305Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;a href=&quot;#（1）掌握面向对象程序设计的基本原则&quot; class=&quot;headerlink&quot; title=&quot;（1）掌握面向对象程序设计的基本原则&quot;&gt;&lt;/a&gt;（1）掌握面向对象程序设计的基本原则&lt;/h2&gt;&lt;p&gt;在软件开发过程中，随着系统复杂度的增加，业务的变更，程序员面临着耦合性，内聚性，可维护性，可扩展性，可重用性的挑战。而良好的设计模式就可以解决此类问题。设计模式是包含了面向对象的精髓，熟练掌握面向对象设计&amp;#x2F;分析是掌握设计模式的基础。可以帮助我们考虑代码结构，使代码易于维护、易于扩展、易于阅读。&lt;/p&gt;
+&lt;p&gt;那么设计模式本身也是有自己需要遵守的原则，也是各种设计模式的基础。那么设计模式有常用的七大原则。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="coding" scheme="https://leoz.work/categories/coding/"/>
+    
+    
+    <category term="编程" scheme="https://leoz.work/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
