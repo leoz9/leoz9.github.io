@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://leoz.work/posts/b132932/</loc>
+    
+    <lastmod>2024-03-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://leoz.work/posts/65b5ea6b/</loc>
     
     <lastmod>2023-10-17</lastmod>
@@ -193,50 +202,50 @@
 
   <url>
     <loc>https://leoz.work/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://leoz.work/tags/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2023-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://leoz.work/tags/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://leoz.work/tags/machine-learning/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <loc>https://leoz.work/tags/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://leoz.work/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://leoz.work/tags/machine-learning/</loc>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://leoz.work/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://leoz.work/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -244,29 +253,29 @@
 
   
   <url>
-    <loc>https://leoz.work/categories/coding/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <loc>https://leoz.work/categories/git/</loc>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://leoz.work/categories/git/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <loc>https://leoz.work/categories/coding/</loc>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://leoz.work/categories/machine-learning/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://leoz.work/categories/openwrt/</loc>
-    <lastmod>2023-10-17</lastmod>
+    <lastmod>2024-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
