@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://leoz.work/posts/c253f990/</loc>
+    <loc>https://leoz.work/posts/3626733/</loc>
     
     <lastmod>2024-04-02</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://leoz.work/posts/3626733/</loc>
+    <loc>https://leoz.work/posts/c253f990/</loc>
     
     <lastmod>2024-04-02</lastmod>
     
@@ -32,6 +32,15 @@
     <loc>https://leoz.work/posts/7821ac43/</loc>
     
     <lastmod>2024-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://leoz.work/posts/68eaf0fe/</loc>
+    
+    <lastmod>2024-03-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -120,15 +129,6 @@
   
   <url>
     <loc>https://leoz.work/posts/1faadecf/</loc>
-    
-    <lastmod>2023-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://leoz.work/posts/68eaf0fe/</loc>
     
     <lastmod>2023-04-03</lastmod>
     
@@ -241,6 +241,13 @@
   </url>
   
   <url>
+    <loc>https://leoz.work/tags/note/</loc>
+    <lastmod>2024-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://leoz.work/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2024-04-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -268,13 +275,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://leoz.work/tags/note/</loc>
-    <lastmod>2024-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -292,6 +292,13 @@
   </url>
   
   <url>
+    <loc>https://leoz.work/categories/note/</loc>
+    <lastmod>2024-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://leoz.work/categories/machine-learning/</loc>
     <lastmod>2024-04-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -300,13 +307,6 @@
   
   <url>
     <loc>https://leoz.work/categories/openwrt/</loc>
-    <lastmod>2024-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://leoz.work/categories/note/</loc>
     <lastmod>2024-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
