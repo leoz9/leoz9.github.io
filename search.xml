@@ -927,6 +927,7 @@ id="softwareprogramdatadocument">1.Software=Program+Data+Document</h3>
 <p>（1）无形</p>
 <p>（2）副本制作简单</p>
 <p>（3）无磨损</p>
+<span id="more"></span>
 <h3
 id="软件危机是指在计算机软件的开发和维护过程中所遇到的一系列严重问题">3.软件危机：是指在计算机软件的开发和维护过程中所遇到的一系列严重问题。</h3>
 <h3 id="软件危机的典型表现">4.软件危机的典型表现：</h3>
@@ -1826,5 +1827,44 @@ href="https://liketea.xyz/搭建博客/Hexo/Hexo%20+%20Github%20Pages%20博客�
 <p>在实际写作中，更常用的写作流程如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 创新草稿</span><br><span class="line">$ hexo n draft &lt;title&gt;</span><br><span class="line"># 2. 编辑文章</span><br><span class="line"># 3. 发布文章</span><br><span class="line">$ hexo publish &lt;title&gt;</span><br><span class="line"># 4. 渲染文章</span><br><span class="line">$ hexo g</span><br><span class="line"># 5. 部署文章</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>interML_homework</title>
+    <url>/posts/3626733/</url>
+    <content><![CDATA[<h1 id="interml-homework">interML-homework</h1>
+<h2 id="部署-internlm2-chat-1.8b-模型进行智能对话"><strong>部署
+<code>InternLM2-Chat-1.8B</code> 模型进行智能对话</strong></h2>
+<p>配置环境</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">studio-conda -o internlm-base -t demo</span><br></pre></td></tr></table></figure>
+<p>激活环境</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda activate demo</span><br></pre></td></tr></table></figure>
+<p>环境包的安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install huggingface-hub==0.17.3</span><br><span class="line">pip install transformers==4.34 </span><br><span class="line">pip install psutil==5.9.8</span><br><span class="line">pip install accelerate==0.24.1</span><br><span class="line">pip install streamlit==1.32.2 </span><br><span class="line">pip install matplotlib==3.8.3 </span><br><span class="line">pip install modelscope==1.9.5</span><br><span class="line">pip install sentencepiece==0.1.99</span><br></pre></td></tr></table></figure>
+<h3 id="下载-internlm2-chat-1.8b-模型"><strong>下载
+<code>InternLM2-Chat-1.8B</code> 模型</strong></h3>
+<p>按路径创建文件夹，并进入到对应文件目录中：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /root/demo</span><br><span class="line">touch /root/demo/cli_demo.py</span><br><span class="line">touch /root/demo/download_mini.py</span><br><span class="line">cd /root/demo</span><br></pre></td></tr></table></figure>
+<p>双击打开 <code>/root/demo/download_mini.py</code>
+文件，复制以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">from modelscope.hub.snapshot_download import snapshot_download</span><br><span class="line"></span><br><span class="line"># 创建保存模型目录</span><br><span class="line">os.system(&quot;mkdir /root/models&quot;)</span><br><span class="line"></span><br><span class="line"># save_dir是模型保存到本地的目录</span><br><span class="line">save_dir=&quot;/root/models&quot;</span><br><span class="line"></span><br><span class="line">snapshot_download(&quot;Shanghai_AI_Laboratory/internlm2-chat-1_8b&quot;, </span><br><span class="line">                  cache_dir=save_dir, </span><br><span class="line">                  revision=&#x27;v1.1.0&#x27;)</span><br></pre></td></tr></table></figure>
+<p>执行命令，下载模型参数文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python /root/demo/download_mini.py</span><br></pre></td></tr></table></figure>
+<h3 id="运行-cli_demo"><strong>2.3 运行 cli_demo</strong></h3>
+<p>双击打开 <code>/root/demo/cli_demo.py</code> 文件，复制以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import torch</span><br><span class="line">from transformers import AutoTokenizer, AutoModelForCausalLM</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">model_name_or_path = &quot;/root/models/Shanghai_AI_Laboratory/internlm2-chat-1_8b&quot;</span><br><span class="line"></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True, device_map=&#x27;cuda:0&#x27;)</span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(model_name_or_path, trust_remote_code=True, torch_dtype=torch.bfloat16, device_map=&#x27;cuda:0&#x27;)</span><br><span class="line">model = model.eval()</span><br><span class="line"></span><br><span class="line">system_prompt = &quot;&quot;&quot;You are an AI assistant whose name is InternLM (书生·浦语).</span><br><span class="line">- InternLM (书生·浦语) is a conversational language model that is developed by Shanghai AI Laboratory (上海人工智能实验室). It is designed to be helpful, honest, and harmless.</span><br><span class="line">- InternLM (书生·浦语) can understand and communicate fluently in the language chosen by the user such as English and 中文.</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">messages = [(system_prompt, &#x27;&#x27;)]</span><br><span class="line"></span><br><span class="line">print(&quot;=============Welcome to InternLM chatbot, type &#x27;exit&#x27; to exit.=============&quot;)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    input_text = input(&quot;\nUser  &gt;&gt;&gt; &quot;)</span><br><span class="line">    input_text = input_text.replace(&#x27; &#x27;, &#x27;&#x27;)</span><br><span class="line">    if input_text == &quot;exit&quot;:</span><br><span class="line">        break</span><br><span class="line"></span><br><span class="line">    length = 0</span><br><span class="line">    for response, _ in model.stream_chat(tokenizer, input_text, messages):</span><br><span class="line">        if response is not None:</span><br><span class="line">            print(response[length:], flush=True, end=&quot;&quot;)</span><br><span class="line">            length = len(response)</span><br></pre></td></tr></table></figure>
+<p>输入命令，执行 Demo 程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda activate demo</span><br><span class="line">python /root/demo/cli_demo.py</span><br></pre></td></tr></table></figure>
+<p>等待模型加载完成，键入内容示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">请创作一个 300 字的小故事</span><br></pre></td></tr></table></figure>
+<p>效果如下： <img
+src="./assets/%E6%88%AA%E5%B1%8F2024-04-02%2014.14.25.png"
+alt="demo1" /></p>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+      </tags>
   </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="https://leoz.work/atom.xml" rel="self"/>
   
   <link href="https://leoz.work/"/>
-  <updated>2024-03-23T04:59:48.778Z</updated>
+  <updated>2024-04-02T06:45:16.842Z</updated>
   <id>https://leoz.work/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>interML_homework</title>
+    <link href="https://leoz.work/posts/3626733/"/>
+    <id>https://leoz.work/posts/3626733/</id>
+    <published>2024-04-02T06:41:31.000Z</published>
+    <updated>2024-04-02T06:45:16.842Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;interml-homework&quot;&gt;interML-homework&lt;/h1&gt;
+&lt;h2 id=&quot;部署-internlm2-chat-1.8b-模型进行智能对话&quot;&gt;&lt;strong&gt;部署
+&lt;code&gt;InternLM2-Chat-1.8B&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="note" scheme="https://leoz.work/categories/note/"/>
+    
+    
+    <category term="编程" scheme="https://leoz.work/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo</title>
@@ -100,20 +127,17 @@
     <link href="https://leoz.work/posts/7821ac43/"/>
     <id>https://leoz.work/posts/7821ac43/</id>
     <published>2023-04-08T05:28:03.000Z</published>
-    <updated>2023-04-08T06:13:06.708Z</updated>
+    <updated>2024-04-02T06:44:58.492Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1 id=&quot;一软件与软件工程&quot;&gt;一、软件与软件工程&lt;/h1&gt;
 &lt;h2 id=&quot;软件危机&quot;&gt;软件危机&lt;/h2&gt;
 &lt;h3
 id=&quot;softwareprogramdatadocument&quot;&gt;1.Software=Program+Data+Document&lt;/h3&gt;
-&lt;h3</summary>
-        
-      
+&lt;h3 id=&quot;软件的特点&quot;&gt;2.软件的特点：&lt;/h3&gt;
+&lt;p&gt;（1）无形&lt;/p&gt;
+&lt;p&gt;（2）副本制作简单&lt;/p&gt;
+&lt;p&gt;（3）无磨损&lt;/p&gt;</summary>
     
     
     
@@ -216,7 +240,7 @@ Descent）。其中小批量梯度下降法也常用在深度学习中进行模�
     <link href="https://leoz.work/posts/ce863392/"/>
     <id>https://leoz.work/posts/ce863392/</id>
     <published>2023-04-02T07:24:21.000Z</published>
-    <updated>2023-04-03T12:23:06.536Z</updated>
+    <updated>2024-04-02T06:45:02.355Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;c-stl&quot;&gt;C++ STL&lt;/h2&gt;
