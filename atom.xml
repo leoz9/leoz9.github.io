@@ -6,7 +6,7 @@
   <link href="https://leoz.work/atom.xml" rel="self"/>
   
   <link href="https://leoz.work/"/>
-  <updated>2024-04-02T06:45:16.842Z</updated>
+  <updated>2024-04-02T07:04:55.138Z</updated>
   <id>https://leoz.work/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>interML_note</title>
+    <link href="https://leoz.work/posts/c253f990/"/>
+    <id>https://leoz.work/posts/c253f990/</id>
+    <published>2024-04-02T07:04:55.000Z</published>
+    <updated>2024-04-02T07:04:55.138Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;第一课笔记&quot;&gt;第一课笔记&lt;/h1&gt;
+&lt;h2 id=&quot;引言&quot;&gt;1.</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://leoz.work/categories/machine-learning/"/>
+    
+    
+    <category term="note" scheme="https://leoz.work/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
     <title>interML_homework</title>
     <link href="https://leoz.work/posts/3626733/"/>
     <id>https://leoz.work/posts/3626733/</id>
     <published>2024-04-02T06:41:31.000Z</published>
-    <updated>2024-04-02T06:45:16.842Z</updated>
+    <updated>2024-04-02T06:49:46.940Z</updated>
     
     
       
