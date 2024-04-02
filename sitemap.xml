@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://leoz.work/posts/fd318370/</loc>
+    
+    <lastmod>2024-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://leoz.work/posts/68eaf0fe/</loc>
+    
+    <lastmod>2024-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://leoz.work/posts/f65f790f/</loc>
+    
+    <lastmod>2024-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://leoz.work/posts/1faadecf/</loc>
+    
+    <lastmod>2024-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://leoz.work/posts/c253f990/</loc>
     
     <lastmod>2024-04-02</lastmod>
@@ -181,42 +217,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://leoz.work/posts/68eaf0fe/</loc>
-    
-    <lastmod>2024-03-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://leoz.work/posts/f65f790f/</loc>
-    
-    <lastmod>2023-04-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://leoz.work/posts/fd318370/</loc>
-    
-    <lastmod>2023-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://leoz.work/posts/1faadecf/</loc>
-    
-    <lastmod>2023-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://leoz.work/</loc>
@@ -241,14 +241,14 @@
   </url>
   
   <url>
-    <loc>https://leoz.work/tags/machine-learning/</loc>
+    <loc>https://leoz.work/tags/note/</loc>
     <lastmod>2024-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://leoz.work/tags/note/</loc>
+    <loc>https://leoz.work/tags/machine-learning/</loc>
     <lastmod>2024-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
