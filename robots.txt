@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://leoz9.github.io//sitemap.xml
+Sitemap: https://leoz9.github.io/sitemap.xml
